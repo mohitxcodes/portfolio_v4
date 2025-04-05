@@ -17,7 +17,7 @@ export default function Header() {
             <div className="flex items-center justify-between">
                 {/* Logo/Brand */}
                 <Link href="/" className="text-xl font-bold text-green-400 hover:text-green-500 transition">
-                    MXHIT
+                    Mohit Singh
                 </Link>
 
                 {/* Navigation */}

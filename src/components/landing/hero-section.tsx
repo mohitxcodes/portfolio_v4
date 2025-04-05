@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FaGithub, FaTwitter, FaLinkedin, FaCheckCircle, FaInstagram } from 'react-icons/fa'
 import { RiVerifiedBadgeFill } from 'react-icons/ri'
+import BackgroundStyle from '../common/background'
 
 export default function HeroSection() {
     const socialLinks = [
@@ -32,9 +33,7 @@ export default function HeroSection() {
     return (
         <>
             {/* Background Card */}
-
-            <div className="relative bg-black/80 backdrop-blur-sm rounded-lg shadow-lg p-6 border border-green-500/20">
-
+            <BackgroundStyle>
                 {/* Profile Banner */}
                 <div className="h-32 overflow-hidden bg-gradient-to-r from-green-500/10 to-green-500/5 rounded-t-lg -mt-6 -mx-6" >
                     <Image
@@ -127,7 +126,7 @@ export default function HeroSection() {
                     </div>
 
                 </div>
-            </div>
+            </BackgroundStyle>
         </>
     )
 }
