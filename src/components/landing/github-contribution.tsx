@@ -35,10 +35,10 @@ export default function GitHubContributions() {
 
     const getContributionColor = (count: number): string => {
         if (count === 0) return 'bg-gray-900 dark:bg-gray-800';
-        if (count < 5) return 'bg-emerald-900/80';
-        if (count < 10) return 'bg-emerald-700';
-        if (count < 20) return 'bg-emerald-600';
-        return 'bg-emerald-500';
+        if (count < 1) return 'bg-emerald-900/80';
+        if (count < 3) return 'bg-emerald-700';
+        if (count < 5) return 'bg-emerald-600';
+        return 'bg-emerald-400';
     };
 
     const months = [
@@ -149,11 +149,11 @@ export default function GitHubContributions() {
                 <div className="flex items-center justify-end gap-2 text-xs text-gray-400">
                     <span>Less</span>
                     <div className="flex gap-1">
-                        <div className="w-3 h-3 rounded-sm bg-gray-900 dark:bg-gray-800" />
-                        <div className="w-3 h-3 rounded-sm bg-emerald-900/80" />
-                        <div className="w-3 h-3 rounded-sm bg-emerald-700" />
+                        <div className="w-3 h-3 rounded-sm bg-gray-800 dark:bg-gray-800" />
+                        <div className="w-3 h-3 rounded-sm bg-emerald-700/80" />
                         <div className="w-3 h-3 rounded-sm bg-emerald-600" />
                         <div className="w-3 h-3 rounded-sm bg-emerald-500" />
+                        <div className="w-3 h-3 rounded-sm bg-emerald-400" />
                     </div>
                     <span>More</span>
                 </div>

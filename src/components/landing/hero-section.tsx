@@ -48,13 +48,13 @@ export default function HeroSection() {
 
                 {/* Profile Image */}
                 <div className="relative -mt-16 mb-4">
-                    <div className="w-32 h-32 rounded-full border-4 border-green-500/30 overflow-hidden">
+                    <div className="w-32 h-32 rounded-full border-2 border-gray-800 overflow-hidden">
                         <Image
                             src="/profile/mohit.jpeg"
                             alt="Profile Photo"
                             width={128}
                             height={128}
-                            className="object-cover"
+                            className="object-cover object-center"
                             priority
                         />
                     </div>
