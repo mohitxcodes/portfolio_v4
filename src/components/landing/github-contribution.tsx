@@ -34,11 +34,11 @@ export default function GitHubContributions() {
     }, [selectedYear]);
 
     const getContributionColor = (count: number): string => {
-        if (count === 0) return 'bg-gray-900 dark:bg-gray-800';
-        if (count < 1) return 'bg-emerald-900/80';
-        if (count < 3) return 'bg-emerald-700';
-        if (count < 5) return 'bg-emerald-600';
-        return 'bg-emerald-400';
+        if (count === 0) return 'bg-gray-100 dark:bg-gray-900';
+        if (count < 1) return 'bg-emerald-200 dark:bg-emerald-900/80';
+        if (count < 3) return 'bg-emerald-300 dark:bg-emerald-700';
+        if (count < 5) return 'bg-emerald-400 dark:bg-emerald-600';
+        return 'bg-emerald-500 dark:bg-emerald-400';
     };
 
     const months = [
@@ -55,35 +55,41 @@ export default function GitHubContributions() {
     return (
         <BackgroundStyle>
             {/* Header */}
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 sm:mb-8">
                 <div className="flex items-center gap-3">
-                    <FaGithub className="text-2xl text-gray-400" />
+                    <FaGithub className="text-2xl text-gray-600 dark:text-gray-400" />
                     <div>
-                        <h2 className="text-xl font-semibold text-gray-200">
+                        <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
                             GitHub Activity
                         </h2>
                         <a
                             href="https://github.com/msxcodes"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm text-gray-400 hover:text-gray-300 transition"
+                            className="text-sm text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 transition"
                         >
                             @msxcodes
                         </a>
                     </div>
                 </div>
 
-                <div className="relative">
+                <div className="relative w-full sm:w-auto">
                     <button
                         onClick={() => setIsYearDropdownOpen(!isYearDropdownOpen)}
-                        className="flex items-center gap-2 px-4 py-2 text-gray-300 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition"
+                        className="flex items-center justify-between gap-2 px-4 py-2 
+                        text-gray-700 dark:text-gray-300 
+                        bg-gray-100 hover:bg-gray-200 dark:bg-gray-800/50 dark:hover:bg-gray-700/50 
+                        rounded-lg transition w-full sm:w-auto"
                     >
                         {selectedYear}
                         <FaChevronDown className={`transition-transform ${isYearDropdownOpen ? 'rotate-180' : ''}`} />
                     </button>
 
                     {isYearDropdownOpen && (
-                        <div className="absolute right-0 mt-2 w-full bg-gray-900/95 backdrop-blur-lg border border-gray-800 rounded-lg py-1 z-10">
+                        <div className="absolute right-0 mt-2 w-full 
+                        bg-white dark:bg-gray-900/95 
+                        border border-gray-200 dark:border-gray-800 
+                        rounded-lg py-1 z-10 shadow-lg">
                             {years.map((year) => (
                                 <button
                                     key={year}
@@ -91,7 +97,10 @@ export default function GitHubContributions() {
                                         setSelectedYear(year);
                                         setIsYearDropdownOpen(false);
                                     }}
-                                    className="w-full px-4 py-2 text-left text-gray-300 hover:bg-gray-800/50 transition"
+                                    className="w-full px-4 py-2 text-left 
+                                    text-gray-700 hover:bg-gray-100 
+                                    dark:text-gray-300 dark:hover:bg-gray-800/50 
+                                    transition"
                                 >
                                     {year}
                                 </button>
@@ -103,8 +112,8 @@ export default function GitHubContributions() {
 
             {/* Contributions Grid */}
             <div className="space-y-4">
-                <div className="relative overflow-x-auto">
-                    <div className="min-w-[1000px]">
+                <div className="relative overflow-x-auto pb-2">
+                    <div className="min-w-[800px] md:min-w-full">
                         {/* Month Labels */}
                         <div className="grid grid-cols-12 mb-2">
                             {months.map((month) => (
@@ -115,7 +124,7 @@ export default function GitHubContributions() {
                         </div>
 
                         {/* Contribution Grid */}
-                        <div className="grid grid-cols-12 gap-4">
+                        <div className="grid grid-cols-12 gap-2 md:gap-4">
                             {months.map((month, monthIndex) => {
                                 const monthWeeks = contributions.collection.contributionCalendar.weeks.filter(week => {
                                     const weekDate = new Date(week.contributionDays[0].date);
@@ -130,7 +139,7 @@ export default function GitHubContributions() {
                                                     {week.contributionDays.map((day, dayIndex) => (
                                                         <div
                                                             key={`${weekIndex}-${dayIndex}`}
-                                                            className={`w-3 h-3 rounded ${getContributionColor(day.contributionCount)} 
+                                                            className={`w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5 rounded ${getContributionColor(day.contributionCount)} 
                                                             hover:ring-1 hover:ring-emerald-400/50 transition-all duration-200`}
                                                             title={`${new Date(day.date).toLocaleDateString()}: ${day.contributionCount} contributions`}
                                                         />
@@ -160,24 +169,24 @@ export default function GitHubContributions() {
             </div>
 
             {/* Stats at bottom */}
-            <div className="flex items-center justify-between border-t mt-1 pt-1 border-gray-800/90">
-                <div className="flex items-center gap-6">
-                    <div className="flex items-center gap-2 hover:bg-gray-800/50 px-3 py-2 rounded-lg transition-all duration-200">
-                        <FaGithub className="text-gray-400" />
-                        <span className="text-sm text-gray-400">Contributions:</span>
-                        <span className="text-gray-200 font-medium">
+            <div className="border-t mt-4 pt-4 border-gray-200 dark:border-gray-800/90">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800/50 px-3 py-2 rounded-lg transition-all duration-200">
+                        <FaGithub className="text-gray-600 dark:text-gray-400" />
+                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Contributions:</span>
+                        <span className="text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-medium">
                             {contributions.collection.contributionCalendar.totalContributions.toLocaleString()}
                         </span>
                     </div>
-                    <div className="flex items-center gap-2 hover:bg-gray-800/50 px-3 py-2 rounded-lg transition-all duration-200">
-                        <FaUsers className="text-gray-400" />
-                        <span className="text-sm text-gray-400">Followers:</span>
-                        <span className="text-gray-200 font-medium">2.1k</span>
+                    <div className="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800/50 px-3 py-2 rounded-lg transition-all duration-200">
+                        <FaUsers className="text-gray-600 dark:text-gray-400" />
+                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Followers:</span>
+                        <span className="text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-medium">2.1k</span>
                     </div>
-                    <div className="flex items-center gap-2 hover:bg-gray-800/50 px-3 py-2 rounded-lg transition-all duration-200">
-                        <FaFire className="text-gray-400" />
-                        <span className="text-sm text-gray-400">Streak:</span>
-                        <span className="text-gray-200 font-medium">14 days</span>
+                    <div className="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800/50 px-3 py-2 rounded-lg transition-all duration-200">
+                        <FaFire className="text-gray-600 dark:text-gray-400" />
+                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Streak:</span>
+                        <span className="text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-medium">14 days</span>
                     </div>
                 </div>
             </div>

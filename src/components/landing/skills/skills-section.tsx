@@ -1,126 +1,128 @@
 import BackgroundStyle from '@/components/common/background'
 import React from 'react'
 import {
-    SiJavascript, SiTypescript, SiPython, SiJouav, SiPostgresql,
+    SiJavascript, SiTypescript, SiPython, SiPostgresql,
     SiReact, SiNextdotjs, SiExpress, SiFastapi, SiNodedotjs,
-    Si1001Tracklists, SiTailwindcss, SiBootstrap, SiMaterialdesign,
-    SiJest, SiCypress, SiGraphql, SiRedux, SiMongodb,
-    SiMysql, SiPrisma, SiGithubactions, SiServerless,
-    SiAmazon, SiDocker, SiMapbox
+    SiTailwindcss, SiBootstrap, SiCypress, SiGraphql, SiRedux,
+    SiMongodb, SiMysql, SiPrisma, SiGithubactions, SiServerless,
+    SiDocker, SiMapbox, SiJest, SiRedis,
+    SiAlchemy, SiAmazonec2,
+    SiAwsamplify,
 } from 'react-icons/si'
-import { FaCode, FaTools, FaDatabase, FaServer } from 'react-icons/fa'
+import { DiJava, DiMaterializecss } from 'react-icons/di'
+import { VscAzure } from 'react-icons/vsc'
 
-const skills = {
-    languages: [
-        { name: 'JavaScript', icon: <SiJavascript className="text-yellow-400" /> },
-        { name: 'TypeScript', icon: <SiTypescript className="text-blue-400" /> },
-        { name: 'Python', icon: <SiPython className="text-blue-500" /> },
-        { name: 'Java', icon: <SiJavascript className="text-red-500" /> },
-        { name: 'SQL', icon: <SiPostgresql className="text-blue-400" /> },
-    ],
-    frameworks: [
-        { name: 'React', icon: <SiReact className="text-blue-400" /> },
-        { name: 'Next.js', icon: <SiNextdotjs className="text-white" /> },
-        { name: 'Express', icon: <SiExpress className="text-white" /> },
-        { name: 'Fast API', icon: <SiFastapi className="text-teal-500" /> },
-        { name: 'Node.js', icon: <SiNodedotjs className="text-green-500" /> },
-        { name: 'React Native', icon: <SiAmazon className="text-blue-400" /> },
-        { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-cyan-400" /> },
-        { name: 'Bootstrap', icon: <SiBootstrap className="text-purple-500" /> },
-        { name: 'Material UI', icon: <SiAmazon className="text-blue-400" /> },
-        { name: 'Jest', icon: <SiJest className="text-red-600" /> },
-        { name: 'Cypress', icon: <SiCypress className="text-gray-400" /> },
-        { name: 'GraphQL', icon: <SiGraphql className="text-pink-500" /> },
-        { name: 'Redux', icon: <SiRedux className="text-purple-500" /> },
-    ],
-    databases: [
-        { name: 'MongoDB', icon: <SiMongodb className="text-green-500" /> },
-        { name: 'PostgreSQL', icon: <SiPostgresql className="text-blue-400" /> },
-        { name: 'MySQL', icon: <SiMysql className="text-blue-500" /> },
-        { name: 'Prisma', icon: <SiPrisma className="text-white" /> },
-    ],
-    tools: [
-        { name: 'GitHub Actions', icon: <SiGithubactions className="text-blue-500" /> },
-        { name: 'Serverless', icon: <SiServerless className="text-red-500" /> },
-        { name: 'AWS S3', icon: <SiAmazon className="text-yellow-500" /> },
-        { name: 'Azure VM', icon: <SiAmazon className="text-blue-500" /> },
-        { name: 'Docker', icon: <SiDocker className="text-blue-400" /> },
-        { name: 'Mapbox', icon: <SiMapbox className="text-blue-500" /> },
-    ]
-}
+const skillCategories = [
+    {
+        title: 'Languages',
+        skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'SQL'],
+        icons: [
+            <SiJavascript className="text-yellow-400" size={16} />,
+            <SiTypescript className="text-blue-400" size={16} />,
+            <SiPython className="text-blue-500" size={16} />,
+            <DiJava className="text-red-500" size={16} />,
+            <SiPostgresql className="text-blue-400" size={16} />
+        ]
+    },
+    {
+        title: 'Libraries & Frameworks',
+        skills: [
+            'React', 'Next.js', 'Express', 'Fast API', 'HonoJs', 'Node.js',
+            'React Native', 'Tailwind CSS', 'Bootstrap', 'Material UI',
+            'Jest', 'Cypress', 'React Query', 'GraphQL', 'Redux', 'Recoil'
+        ],
+        icons: [
+            <SiReact className="text-blue-400" size={16} />,
+            <SiNextdotjs className="text-white" size={16} />,
+            <SiExpress className="text-white" size={16} />,
+            <SiFastapi className="text-teal-500" size={16} />,
+            <SiAlchemy className="text-white" size={16} />,
+            <SiNodedotjs className="text-green-500" size={16} />,
+            <SiReact className="text-blue-400" size={16} />,
+            <SiTailwindcss className="text-cyan-400" size={16} />,
+            <SiBootstrap className="text-purple-500" size={16} />,
+            <DiMaterializecss className="text-blue-400" size={16} />,
+            <SiJest className="text-red-500" size={16} />,
+            <SiCypress className="text-green-400" size={16} />,
+            <SiReact className="text-blue-500" size={16} />,
+            <SiGraphql className="text-pink-500" size={16} />,
+            <SiRedux className="text-purple-500" size={16} />,
+            <SiRedux className="text-blue-400" size={16} />
+        ]
+    },
+    {
+        title: 'Databases & ORMs',
+        skills: ['MongoDB', 'Postgres', 'SQLAlchemy', 'Redis', 'Alembic', 'MySQL', 'Prisma', 'PyScopG2'],
+        icons: [
+            <SiMongodb className="text-green-500" size={16} />,
+            <SiPostgresql className="text-blue-400" size={16} />,
+            <SiAlchemy className="text-gray-400" size={16} />,
+            <SiRedis className="text-red-500" size={16} />,
+            <SiAlchemy className="text-gray-400" size={16} />,
+            <SiMysql className="text-blue-500" size={16} />,
+            <SiPrisma className="text-white" size={16} />,
+            <SiPython className="text-yellow-500" size={16} />
+        ]
+    },
+    {
+        title: 'Tools & Platforms',
+        skills: [
+            'GitHub Actions', 'Serverless', 'ESLint', 'AWS S3', 'AWS EC2',
+            'AWS CloudFront', 'Azure VM', 'Docker', 'Mapbox'
+        ],
+        icons: [
+            <SiGithubactions className="text-blue-500" size={16} />,
+            <SiServerless className="text-red-500" size={16} />,
+            <SiJavascript className="text-purple-500" size={16} />,
+            <SiAwsamplify className="text-yellow-500" size={16} />,
+            <SiAmazonec2 className="text-yellow-500" size={16} />,
+            <SiAlchemy className="text-yellow-500" size={16} />,
+            <VscAzure className="text-blue-500" size={16} />,
+            <SiDocker className="text-blue-400" size={16} />,
+            <SiMapbox className="text-blue-500" size={16} />
+        ]
+    }
+]
 
 export default function SkillsSection() {
     return (
         <BackgroundStyle>
-            <div className='flex flex-col gap-8 py-8'>
-                <h2 className='text-3xl font-bold text-gray-100'>Skills</h2>
+            <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-gray-800 dark:text-gray-100">
+                    Skills
+                </h2>
 
-                {/* Languages */}
-                <div className='flex flex-col gap-4'>
-                    <div className='flex items-center gap-2 text-gray-300'>
-                        <FaCode className="text-xl" />
-                        <h3 className='text-xl font-semibold'>Languages</h3>
-                    </div>
-                    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4'>
-                        {skills.languages.map((skill) => (
-                            <div key={skill.name}
-                                className='flex items-center gap-3 p-3 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-all duration-300'>
-                                <div className="text-2xl">{skill.icon}</div>
-                                <span className="text-gray-300">{skill.name}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                <div className="space-y-4 sm:space-y-6">
+                    {skillCategories.map((category, index) => (
+                        <div key={category.title} className="space-y-3 sm:space-y-6">
+                            <h3 className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 font-medium">
+                                {category.title}
+                            </h3>
+                            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                                {category.skills.map((skill, skillIndex) => (
+                                    <div
+                                        key={skill}
+                                        className="group relative flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 
+                                        bg-gray-100 hover:bg-gray-200 dark:bg-gray-800/50 dark:hover:bg-gray-700/50 
+                                        rounded-sm border border-gray-200 dark:border-gray-700/50 transition-all duration-300
+                                        hover:border-gray-300 dark:hover:border-gray-600/50 cursor-default"
+                                    >
+                                        <span className="text-base sm:text-lg md:text-xl">
+                                            {category.icons[skillIndex]}
+                                        </span>
+                                        <span className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium">
+                                            {skill}
+                                        </span>
 
-                {/* Libraries & Frameworks */}
-                <div className='flex flex-col gap-4'>
-                    <div className='flex items-center gap-2 text-gray-300'>
-                        <FaTools className="text-xl" />
-                        <h3 className='text-xl font-semibold'>Libraries & Frameworks</h3>
-                    </div>
-                    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-                        {skills.frameworks.map((skill) => (
-                            <div key={skill.name}
-                                className='flex items-center gap-3 p-3 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-all duration-300'>
-                                <div className="text-2xl">{skill.icon}</div>
-                                <span className="text-gray-300">{skill.name}</span>
+                                        {/* Hover Effect */}
+                                        <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-gray-100/0 via-gray-200/5 to-gray-100/0 
+                                        dark:from-gray-800/0 dark:via-gray-700/5 dark:to-gray-800/0 
+                                        opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Databases & ORMs */}
-                <div className='flex flex-col gap-4'>
-                    <div className='flex items-center gap-2 text-gray-300'>
-                        <FaDatabase className="text-xl" />
-                        <h3 className='text-xl font-semibold'>Databases & ORMs</h3>
-                    </div>
-                    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-                        {skills.databases.map((skill) => (
-                            <div key={skill.name}
-                                className='flex items-center gap-3 p-3 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-all duration-300'>
-                                <div className="text-2xl">{skill.icon}</div>
-                                <span className="text-gray-300">{skill.name}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Tools & Platforms */}
-                <div className='flex flex-col gap-4'>
-                    <div className='flex items-center gap-2 text-gray-300'>
-                        <FaServer className="text-xl" />
-                        <h3 className='text-xl font-semibold'>Tools & Platforms</h3>
-                    </div>
-                    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-                        {skills.tools.map((skill) => (
-                            <div key={skill.name}
-                                className='flex items-center gap-3 p-3 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-all duration-300'>
-                                <div className="text-2xl">{skill.icon}</div>
-                                <span className="text-gray-300">{skill.name}</span>
-                            </div>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </BackgroundStyle>

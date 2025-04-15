@@ -1,7 +1,5 @@
 import React from 'react'
 import Link from 'next/link'
-import ContentWrapper from '@/components/common/content-wrapper'
-
 export default function Header() {
     const navItems = [
         { label: 'Home', href: '/', shortcut: '(h)' },
@@ -13,12 +11,21 @@ export default function Header() {
     ]
 
     return (
-        <header className="max-w-6xl px-4 py-4 mx-auto relative bg-black/80 backdrop-blur-sm z-50 border rounded-lg border-green-500/20 my-4">
+        <header className="max-w-6xl px-4 py-4 mx-auto relative bg-white/95 dark:bg-black/80 backdrop-blur-sm z-50 
+            border rounded-lg border-gray-200 dark:border-green-500/20 my-4 
+            shadow-lg shadow-gray-100 dark:shadow-none
+            transition-all duration-300">
             <div className="flex items-center justify-between">
                 {/* Logo/Brand */}
-                <Link href="/" className="text-xl font-bold text-green-400 hover:text-green-500 transition">
+                <Link
+                    href="/"
+                    className="text-xl font-bold 
+                        text-gray-800 hover:text-gray-900 dark:text-green-400 dark:hover:text-green-500 
+                        transition-colors"
+                >
                     Mohit Singh
                 </Link>
+
 
                 {/* Navigation */}
                 <nav className="hidden md:flex items-center space-x-6">
@@ -26,10 +33,16 @@ export default function Header() {
                         <Link
                             key={index}
                             href={item.href}
-                            className="group relative text-gray-300 hover:text-green-400 transition-colors"
+                            className="group relative 
+                                text-gray-600 hover:text-gray-900 
+                                dark:text-gray-300 dark:hover:text-green-400 
+                                transition-colors"
                         >
                             {item.label}
-                            <span className="absolute -top-4 right-0 text-xs text-green-500/50 group-hover:text-green-400">
+                            <span className="absolute -top-4 right-0 text-xs 
+                                text-gray-400 group-hover:text-gray-600
+                                dark:text-green-500/50 dark:group-hover:text-green-400
+                                transition-colors">
                                 {item.shortcut}
                             </span>
                         </Link>
@@ -37,7 +50,10 @@ export default function Header() {
                 </nav>
 
                 {/* Mobile Menu Button */}
-                <button className="md:hidden p-2 text-green-400 hover:text-green-500">
+                <button className="md:hidden p-2 
+                    text-gray-600 hover:text-gray-900 
+                    dark:text-green-400 dark:hover:text-green-500
+                    transition-colors">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
