@@ -17,7 +17,7 @@ export default function GitHubContributions() {
     useEffect(() => {
         const loadData = async () => {
             try {
-                const data = await fetchGitHubContributions('msxcodes', selectedYear);
+                const data = await fetchGitHubContributions('mohitxcodes', selectedYear);
                 if (data) {
                     setContributions(data);
                 } else {
