@@ -3,6 +3,7 @@ import HeroSection from "@/components/landing/hero-section"
 import GithubContribution from "@/components/landing/github-contribution";
 import SkillsSection from "@/components/landing/skills/skills-section";
 import ExperienceSection from "@/components/landing/experince/exp-section";
+import CertificationsSection from "@/components/landing/certifications/certifications-section";
 export default function LandingPage() {
     return (
         <div className="">
@@ -12,6 +13,7 @@ export default function LandingPage() {
                     <GithubContribution />
                     <SkillsSection />
                     <ExperienceSection />
+                    <CertificationsSection />
                 </div>
             </ContentWrapper>
         </div>
