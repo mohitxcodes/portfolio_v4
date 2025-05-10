@@ -68,7 +68,7 @@ export default function ProjectsSection() {
                                 {/* Project Image */}
                                 <div className="relative h-48 w-full overflow-hidden">
                                     <Image
-                                        src={project.image}
+                                        src={project.images[0]}
                                         alt={project.title}
                                         fill
                                         className="object-cover transition-transform duration-300 group-hover:scale-110"
