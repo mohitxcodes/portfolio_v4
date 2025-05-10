@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaGithub, FaTwitter, FaLinkedin, FaCheckCircle, FaInstagram } from 'react-icons/fa'
+import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa'
 import { RiVerifiedBadgeFill } from 'react-icons/ri'
 import BackgroundStyle from '../common/background'
 
@@ -9,23 +9,23 @@ export default function HeroSection() {
     const socialLinks = [
         {
             icon: FaGithub,
-            href: "https://github.com/msxcodes",
+            href: "https://github.com/mohitxcodes",
             label: "GitHub"
         },
 
         {
             icon: FaLinkedin,
-            href: "https://linkedin.com/in/msxcodes",
+            href: "https://linkedin.com/in/mohitxcodes",
             label: "LinkedIn"
         },
         {
             icon: FaTwitter,
-            href: "https://twitter.com/msxcodes",
+            href: "https://twitter.com/mohitxcodes",
             label: "Twitter"
         },
         {
             icon: FaInstagram,
-            href: "https://instagram.com/msxcodes",
+            href: "https://instagram.com/mohitxcodes",
             label: "Instagram"
         }
     ]
@@ -76,10 +76,10 @@ export default function HeroSection() {
                                 <span className="text-sm text-gray-400">(he/him)</span>
                             </div>
                             <Link
-                                href="https://www.buymeacoffee.com/msxcodes"
+                                href="https://www.buymeacoffee.com/mohitxcodes"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-3 py-2 bg-amber-500/5 text-amber-400 rounded-md hover:bg-amber-500/10 transition border border-amber-500/30 flex items-center gap-2"
+                                className="px-4 py-1.5 text-sm font-medium bg-amber-500/5 text-amber-400 rounded-sm hover:bg-amber-500/10 transition border border-amber-500/30 flex items-center gap-2 active:scale-95"
                             >
                                 <span>☕</span>
                                 <span>Buy me a coffee</span>
@@ -103,7 +103,7 @@ export default function HeroSection() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-600 hover:text-green-600 
-                                dark:text-gray-400 dark:hover:text-green-400 
+                                dark:text-gray-400 dark:hover:text-white 
                                 transition hover:scale-110 active:scale-90"
                                 aria-label={social.label}
                             >
@@ -111,14 +111,14 @@ export default function HeroSection() {
                             </a>
                         ))}
                     </div>
-                    <div className="hover:scale-105 active:scale-95 transition">
+                    <div className="active:scale-95 transition">
                         <Link
                             href="/resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-4 py-2 bg-white-500/10 text-white-400 rounded-md hover:bg-gray-500/20 transition border border-gray-500 flex items-center gap-2"
+                            className="px-5 py-1.5 text-sm font-medium bg-white-500/10 text-white-400 rounded-sm hover:bg-gray-500/20 transition border-2 overflow-hidden border-gray-500 flex items-center gap-2 active:scale-95"
                         >
-                            <span>📄</span>
+                            <span className='text-xs'>📄</span>
                             <span>Resume</span>
                         </Link>
                     </div>
@@ -126,8 +126,8 @@ export default function HeroSection() {
 
                 {/* Location & Contact */}
                 <div className="flex items-center gap-4 text-gray-700 dark:text-gray-300">
-                    <span>📍 Patna, Bihar, India</span>
-                    <span>📧 Contact - msxcodes@gmail.com</span>
+                    <span>📍 Bihar, India</span>
+                    <span>📧 Contact - mohitxcodes@gmail.com</span>
                 </div>
 
             </div>
