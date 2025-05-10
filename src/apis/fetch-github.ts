@@ -1,10 +1,9 @@
 import type { GitHubContributions } from '@/types/github-types';
 
-
 export async function fetchGitHubContributions(
   username: string,
   year?: number
-): Promise<GitHubContributions> {
+): Promise<GitHubContributions & { followers: number }> {
   const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
   if (!token) {
@@ -25,6 +24,9 @@ export async function fetchGitHubContributions(
     query: `
       query($username: String!, $from: DateTime!, $to: DateTime!) {
         user(login: $username) {
+          followers {
+            totalCount
+          }
           contributionsCollection(from: $from, to: $to) {
             contributionCalendar {
               totalContributions
@@ -69,18 +71,10 @@ export async function fetchGitHubContributions(
     return {
       year: targetYear,
       collection: data.user.contributionsCollection,
+      followers: data.user.followers.totalCount,
     };
   } catch (error) {
-    console.error('Error fetching GitHub contributions:', error);
+    console.error('Error fetching GitHub data:', error);
     throw error;
   }
-}
-
-export async function fetchMultipleYearsContributions(
-  username: string,
-  years: number[]
-): Promise<GitHubContributions[]> {
-  return Promise.all(
-    years.map(year => fetchGitHubContributions(username, year))
-  );
 }

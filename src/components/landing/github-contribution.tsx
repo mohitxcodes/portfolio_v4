@@ -33,6 +33,8 @@ export default function GitHubContributions() {
         loadData();
     }, [selectedYear]);
 
+    console.log(contributions);
+
     const getContributionColor = (count: number): string => {
         if (count === 0) return 'bg-gray-100 dark:bg-gray-900';
         if (count < 1) return 'bg-emerald-200 dark:bg-emerald-900/80';
@@ -63,12 +65,12 @@ export default function GitHubContributions() {
                             GitHub Activity
                         </h2>
                         <a
-                            href="https://github.com/msxcodes"
+                            href="https://github.com/mohitxcodes"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-sm text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 transition"
                         >
-                            @msxcodes
+                            @mohitxcodes
                         </a>
                     </div>
                 </div>
@@ -181,7 +183,7 @@ export default function GitHubContributions() {
                     <div className="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800/50 px-3 py-2 rounded-lg transition-all duration-200">
                         <FaUsers className="text-gray-600 dark:text-gray-400" />
                         <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Followers:</span>
-                        <span className="text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-medium">2.1k</span>
+                        <span className="text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-medium">{contributions.followers}</span>
                     </div>
                     <div className="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800/50 px-3 py-2 rounded-lg transition-all duration-200">
                         <FaFire className="text-gray-600 dark:text-gray-400" />

@@ -1,40 +1,37 @@
 import BackgroundStyle from '@/components/common/background'
 import React from 'react'
-import { FaGithub, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa'
+import { FaGithub, FaExternalLinkAlt, FaArrowRight, FaGlobe, FaRobot, FaMobile } from 'react-icons/fa'
 import Image from 'next/image'
 import Link from 'next/link'
-
-const projects = [
-    {
-        title: "E-Commerce Platform",
-        description: "A full-stack e-commerce platform with real-time inventory management, payment processing, and admin dashboard.",
-        image: "/projects/ecommerce.png",
-        githubUrl: "https://github.com/username/ecommerce",
-        liveUrl: "https://ecommerce-demo.com",
-        technologies: ["Next.js", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
-        featured: true
-    },
-    {
-        title: "AI-Powered Chat Application",
-        description: "Real-time chat application with AI integration for smart responses and language processing.",
-        image: "/projects/chat-app.png",
-        githubUrl: "https://github.com/username/chat-app",
-        liveUrl: "https://chat-app-demo.com",
-        technologies: ["React", "Socket.io", "OpenAI", "Express", "Redis"],
-        featured: true
-    },
-    {
-        title: "Task Management System",
-        description: "Collaborative task management system with real-time updates, team features, and analytics.",
-        image: "/projects/task-manager.png",
-        githubUrl: "https://github.com/username/task-manager",
-        liveUrl: "https://task-manager-demo.com",
-        technologies: ["Vue.js", "Firebase", "Tailwind CSS", "Chart.js"],
-        featured: true
-    }
-]
+import { projectsData } from './data/projects-data'
 
 export default function ProjectsSection() {
+    const getProjectTypeIcon = (type: string) => {
+        switch (type) {
+            case 'website':
+                return <FaGlobe className="text-blue-500" size={16} />
+            case 'ai':
+                return <FaRobot className="text-purple-500" size={16} />
+            case 'app':
+                return <FaMobile className="text-green-500" size={16} />
+            default:
+                return null
+        }
+    }
+
+    const getProjectTypeTooltip = (type: string) => {
+        switch (type) {
+            case 'website':
+                return 'Web Application'
+            case 'ai':
+                return 'AI Project'
+            case 'app':
+                return 'Mobile/Desktop App'
+            default:
+                return ''
+        }
+    }
+
     return (
         <BackgroundStyle>
             <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2">
@@ -58,7 +55,7 @@ export default function ProjectsSection() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {projects.map((project, index) => (
+                    {projectsData.map((project, index) => (
                         <div
                             key={index}
                             className="group relative bg-white dark:bg-gray-800/50 rounded-xl overflow-hidden
@@ -78,7 +75,7 @@ export default function ProjectsSection() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
 
                                 {/* Project Links */}
-                                <div className="absolute top-4 right-4 flex gap-2">
+                                <div className="absolute top-4 right-4 flex gap-2 z-10">
                                     <a
                                         href={project.githubUrl}
                                         target="_blank"
@@ -101,22 +98,37 @@ export default function ProjectsSection() {
                             </div>
 
                             {/* Content */}
-                            <div className="p-4 sm:p-6">
-                                <h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-100
-                                    group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300 mb-2">
-                                    {project.title}
-                                </h3>
+                            <div className="p-4 sm:p-6 ">
+                                <div className="flex items-center justify-between mb-1">
+                                    <h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-100
+                                        group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
+                                        {project.title}
+                                    </h3>
+                                    <div className="relative group/tooltip cursor-pointer">
+                                        {getProjectTypeIcon(project.projectType)}
+                                        <div className="absolute -top-8 right-0 px-2 py-1 text-xs font-medium text-white
+                                            bg-gray-900 dark:bg-gray-700 rounded-md opacity-0 group-hover/tooltip:opacity-100
+                                            transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                                            {getProjectTypeTooltip(project.projectType)}
+                                            <div className="absolute -bottom-1 right-2 w-2 h-2 bg-gray-900 dark:bg-gray-700 
+                                                transform rotate-45" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
+                                    {project.subtitle}
+                                </p>
 
                                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
                                     {project.description}
                                 </p>
 
                                 {/* Technologies */}
-                                <div className="flex flex-wrap gap-2">
+                                <div className="flex flex-wrap gap-2 ">
                                     {project.technologies.map((tech, idx) => (
                                         <span
                                             key={idx}
-                                            className="px-2 py-1 text-xs font-medium text-gray-700 dark:text-gray-300
+                                            className="px-2 py-1 text-xs z-50 font-medium text-gray-700 dark:text-gray-300
                                             bg-gray-100 dark:bg-gray-700/50 rounded-sm
                                             border border-gray-200 dark:border-gray-600/50"
                                         >
@@ -128,7 +140,7 @@ export default function ProjectsSection() {
 
                             {/* Decorative Elements */}
                             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-100/20 to-transparent 
-                                dark:from-gray-700/20 rounded-bl-full opacity-0 group-hover:opacity-100 
+                                dark:from-gray-700/40 rounded-bl-full opacity-0 group-hover:opacity-100 
                                 transition-opacity duration-500" />
                             <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-gray-100/20 to-transparent 
                                 dark:from-gray-700/20 rounded-tr-full opacity-0 group-hover:opacity-100 
