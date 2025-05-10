@@ -10,20 +10,15 @@ import EducationSection from "@/components/landing/education/education-section";
 import ServicesSection from "@/components/landing/services/services-section";
 export default function LandingPage() {
     return (
-        <div className="">
-            <ContentWrapper>
-                <div className="flex flex-col gap-4">
-                    <HeroSection />
-                    <GithubContribution />
-                    <SkillsSection />
-                    <ProjectsSection />
-                    <ExperienceSection />
-                    <CertificationsSection />
-                    <EducationSection />
-                    <ServicesSection />
-                    <Footer />
-                </div>
-            </ContentWrapper>
+        <div className="flex flex-col gap-4">
+            <HeroSection />
+            <GithubContribution />
+            <SkillsSection />
+            <ProjectsSection />
+            <ExperienceSection />
+            <CertificationsSection />
+            <EducationSection />
+            <ServicesSection />
         </div>
     );
 }

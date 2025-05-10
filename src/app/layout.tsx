@@ -4,7 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import ThemeToggle from '@/components/common/theme-toggle'
 import Header from '@/components/layouts/header/header'
-
+import Footer from "@/components/layouts/footer/footer";
+import ContentWrapper from "@/components/common/content-wrapper";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,7 +32,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-black transition-colors duration-300`}
       >
         <ThemeProvider>
-          {children}
+          <Header />
+          <ContentWrapper>
+            {children}
+            <Footer />
+          </ContentWrapper>
           <ThemeToggle />
         </ThemeProvider>
       </body>

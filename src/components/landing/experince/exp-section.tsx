@@ -1,43 +1,8 @@
 import BackgroundStyle from '@/components/common/background'
 import React from 'react'
-import { FaBriefcase, FaCalendarAlt, FaBuilding, FaMapMarkerAlt, FaExternalLinkAlt } from 'react-icons/fa'
-import {
-    SiJavascript, SiTypescript, SiPostgresql,
-    SiReact, SiExpress, SiNodedotjs,
-    SiMongodb,
-    SiDocker, SiJest,
-} from 'react-icons/si'
+import { FaBriefcase, FaCalendarAlt, FaBuilding, FaMapMarkerAlt, FaExternalLinkAlt, FaClock } from 'react-icons/fa'
+import { experiences } from './data/exp-data'
 
-const experiences = [
-    {
-        company: "Company Name",
-        role: "Senior Software Engineer",
-        duration: "2022 - Present",
-        location: "San Francisco, CA",
-        companyUrl: "https://company.com",
-        technologies: [
-            { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
-            { name: "TypeScript", icon: SiTypescript, color: "text-blue-400" },
-            { name: "React", icon: SiReact, color: "text-blue-400" },
-            { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-400" },
-            { name: "Docker", icon: SiDocker, color: "text-blue-400" }
-        ]
-    },
-    {
-        company: "Previous Company",
-        role: "Software Engineer",
-        duration: "2020 - 2022",
-        location: "New York, NY",
-        companyUrl: "https://previous-company.com",
-        technologies: [
-            { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
-            { name: "React", icon: SiReact, color: "text-blue-400" },
-            { name: "Express", icon: SiExpress, color: "text-white" },
-            { name: "MongoDB", icon: SiMongodb, color: "text-green-500" },
-            { name: "Jest", icon: SiJest, color: "text-red-500" }
-        ]
-    }
-]
 
 export default function ExperienceSection() {
     return (
@@ -115,14 +80,14 @@ export default function ExperienceSection() {
                                         group/link"
                                     >
                                         <FaExternalLinkAlt className="text-gray-500 group-hover/link:text-gray-700 
-                                            dark:text-gray-400 dark:group-hover/link:text-gray-200" size={14} />
+                                        dark:text-gray-400 dark:group-hover/link:text-gray-200" size={14} />
                                     </a>
 
                                     <div className="flex items-center gap-3 mb-4 relative">
-                                        <div className="p-2 rounded-lg bg-gradient-to-br from-gray-100 to-gray-50 
+                                        <div className="rounded-sm bg-gradient-to-br from-gray-100 to-gray-50 
                                             dark:from-gray-700/50 dark:to-gray-800/50
                                             shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                                            <FaBriefcase className="text-gray-600 dark:text-gray-300" size={20} />
+                                            <img src={exp.companyLogo} alt={exp.company} className="size-10 rounded-sm" />
                                         </div>
                                         <div>
                                             <h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-100
@@ -148,6 +113,11 @@ export default function ExperienceSection() {
                                             <FaCalendarAlt className="text-gray-500 group-hover:text-gray-600 
                                                 dark:group-hover:text-gray-300 transition-colors duration-300" size={14} />
                                             <span>{exp.duration}</span>
+                                        </div>
+                                        <div className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400">
+                                            <FaClock className="text-gray-500 group-hover:text-gray-600 
+                                                dark:group-hover:text-gray-300 transition-colors duration-300" size={14} />
+                                            <span>{exp.type}</span>
                                         </div>
                                     </div>
 
