@@ -14,7 +14,7 @@ export default function Header() {
         { label: 'Experience', href: '/experience' },
         { label: 'Portfolio', href: '/portfolio' },
         { label: 'Events', href: '/events' },
-        { label: 'Contact', href: '/contact' }
+        { label: 'Contact', href: '/contact-us' }
     ]
 
     return (

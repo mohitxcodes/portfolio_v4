@@ -212,6 +212,6 @@ export const projectsData: Project[] = [
             backend: "Node.js + Express with PostgreSQL for data persistence",
             devops: "CI/CD using GitHub Actions, deployed on Vercel",
             extras: "Prism.js for syntax highlighting"
-        }
+    }
     },
 ]
