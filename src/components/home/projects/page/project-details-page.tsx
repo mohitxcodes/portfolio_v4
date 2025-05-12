@@ -7,7 +7,7 @@ import {
 } from 'react-icons/fa'
 import Link from 'next/link'
 import { projectsData } from '../data/projects-data'
-import BackgroundStyle from '@/components/common/background'
+import BackgroundStyle from '@/core/common/background'
 import ProjectHeader from './components/ProjectHeader'
 import ProjectOverview from './components/ProjectOverview'
 import ProjectChallenges from './components/ProjectChallenges'

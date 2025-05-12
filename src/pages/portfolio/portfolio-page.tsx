@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight, FaCode, FaPalette, FaRocket, FaArrowRight } from 'react-icons/fa'
-import BackgroundStyle from '@/components/common/background'
+import BackgroundStyle from '@/core/common/background'
 
 interface PortfolioVersion {
     version: string;

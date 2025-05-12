@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import { fetchGitHubContributions } from '@/apis/fetch-github';
 import type { GitHubContributions } from '@/types/github-types';
 import { FaChevronDown, FaGithub, FaUsers, FaFire } from 'react-icons/fa';
-import ContributionsFallback from '@/components/fallback/contributions-fallback';
-import BackgroundStyle from '../common/background';
+import ContributionsFallback from '@/core/fallback/contributions-fallback';
+import BackgroundStyle from '../../../core/common/background';
 
 export default function GitHubContributions() {
     const [contributions, setContributions] = useState<GitHubContributions | null>(null);

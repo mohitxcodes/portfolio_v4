@@ -1,4 +1,4 @@
-import EventPage from '@/components/pages/events/event-page'
+import EventPage from '@/pages/events/event-page'
 import React from 'react'
 
 export default function Events() {

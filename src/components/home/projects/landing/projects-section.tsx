@@ -1,10 +1,10 @@
-import BackgroundStyle from '@/components/common/background'
+import BackgroundStyle from '@/core/common/background'
 import React from 'react'
 import { FaGithub, FaExternalLinkAlt, FaArrowRight, FaGlobe, FaRobot, FaMobile } from 'react-icons/fa'
 import Image from 'next/image'
 import Link from 'next/link'
 import { projectsData } from '../data/projects-data'
-import CardOverlayStyle from '@/components/common/card-overlay-style'
+import CardOverlayStyle from '@/core/common/card-overlay-style'
 export default function ProjectsSection() {
     const getProjectTypeIcon = (type: string) => {
         switch (type) {

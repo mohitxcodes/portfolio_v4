@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaBriefcase, FaCertificate, FaAward, FaArrowLeft, FaBuilding, FaMapMarkerAlt, FaCalendarAlt, FaClock, FaExternalLinkAlt } from 'react-icons/fa'
-import BackgroundStyle from '@/components/common/background'
+import BackgroundStyle from '@/core/common/background'
 import Link from 'next/link'
 import { experiences } from '../data/exp-data'
 

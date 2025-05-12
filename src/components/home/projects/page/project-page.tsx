@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { FaDesktop, FaMobileAlt, FaRobot, FaArrowLeft } from 'react-icons/fa'
 import { projectsData } from '../data/projects-data'
-import BackgroundStyle from '@/components/common/background'
+import BackgroundStyle from '@/core/common/background'
 import ProjectCard from './components/ProjectCard'
 import ProjectModal from './components/ProjectModal'
 import Link from 'next/link'

@@ -2,7 +2,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaDiscord, FaTwitter, FaArrowLeft } from 'react-icons/fa'
-import BackgroundStyle from '@/components/common/background'
+import BackgroundStyle from '@/core/common/background'
 import Link from 'next/link'
 import ContactForm from './components/contact-form'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { FaExternalLinkAlt, FaCalendarAlt } from 'react-icons/fa'
-import CardOverlayStyle from '@/components/common/card-overlay-style'
+import CardOverlayStyle from '@/core/common/card-overlay-style'
 export default function CertificationsCard({ cert, index }: { cert: any, index: number }) {
     return (
         <div

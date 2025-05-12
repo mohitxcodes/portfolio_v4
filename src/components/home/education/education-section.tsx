@@ -1,10 +1,10 @@
-import BackgroundStyle from '@/components/common/background'
+import BackgroundStyle from '@/core/common/background'
 import React from 'react'
 import { FaGraduationCap, FaCalendarAlt, FaMapMarkerAlt, FaExternalLinkAlt } from 'react-icons/fa'
 import Image from 'next/image'
 import { educationData } from './data/education-data'
 import { IEducation } from './data/education-data'
-import CardOverlayStyle from '@/components/common/card-overlay-style'
+import CardOverlayStyle from '@/core/common/card-overlay-style'
 
 export default function EducationSection() {
     return (

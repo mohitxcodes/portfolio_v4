@@ -1,4 +1,4 @@
-import BackgroundStyle from '@/components/common/background'
+import BackgroundStyle from '@/core/common/background'
 import React from 'react'
 import { FaCode, FaMobile, FaRocket, FaExternalLinkAlt, FaCheckCircle, FaClock, FaUsers, FaShieldAlt } from 'react-icons/fa'
 import Image from 'next/image'

@@ -1,4 +1,4 @@
-import BackgroundStyle from '@/components/common/background'
+import BackgroundStyle from '@/core/common/background'
 import React from 'react'
 import {
     SiJavascript, SiTypescript, SiPython, SiPostgresql,

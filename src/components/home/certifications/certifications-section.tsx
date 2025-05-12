@@ -1,4 +1,4 @@
-import BackgroundStyle from '@/components/common/background'
+import BackgroundStyle from '@/core/common/background'
 import React from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 import Link from 'next/link'

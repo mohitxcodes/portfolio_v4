@@ -1,34 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa'
 import { RiVerifiedBadgeFill } from 'react-icons/ri'
-import BackgroundStyle from '../common/background'
+import BackgroundStyle from '../../../core/common/background'
+import { socialLinks } from '@/data/hero-data'
 
 export default function HeroSection() {
-    const socialLinks = [
-        {
-            icon: FaGithub,
-            href: "https://github.com/mohitxcodes",
-            label: "GitHub"
-        },
 
-        {
-            icon: FaLinkedin,
-            href: "https://linkedin.com/in/mohitxcodes",
-            label: "LinkedIn"
-        },
-        {
-            icon: FaTwitter,
-            href: "https://twitter.com/mohitxcodes",
-            label: "Twitter"
-        },
-        {
-            icon: FaInstagram,
-            href: "https://instagram.com/mohitxcodes",
-            label: "Instagram"
-        }
-    ]
 
     return (
         <BackgroundStyle>
@@ -127,7 +105,7 @@ export default function HeroSection() {
                 {/* Location & Contact */}
                 <div className="flex items-center gap-4 text-gray-700 dark:text-gray-300">
                     <span>📍 Bihar, India</span>
-                    <span>📧 Contact - mohitxcodes@gmail.com</span>
+                    <span>📧 Contact - <a href="mailto:mohitxcodes@gmail.com" className="hover:text-black dark:hover:text-white transition hover:underline">mohitxcodes@gmail.com</a></span>
                 </div>
 
             </div>
