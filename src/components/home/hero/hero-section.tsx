@@ -91,7 +91,7 @@ export default function HeroSection() {
                     </div>
                     <div className="active:scale-95 transition">
                         <Link
-                            href="/resume.pdf"
+                            href="/exp/resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-4 sm:px-5 py-1.5 text-xs sm:text-sm font-medium 

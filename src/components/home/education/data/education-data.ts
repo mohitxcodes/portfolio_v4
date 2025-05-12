@@ -11,7 +11,7 @@ export const educationData = [
     {
         degree: "Bechelor of Engineering in Computer Science and Engineering",
         institution: "Chandigarh University",
-        duration: "2024 - 2028",
+        duration: "2024 - Present",
         location: "Punjab, India",
         website: "https://www.cuchd.in/",
         logo: "/education/cu-log.webp",

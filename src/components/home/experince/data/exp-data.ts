@@ -10,13 +10,14 @@ export const experiences = [
         type: "Remote",
         duration: "Feb 2025 - April 2025",
         location: "Gurgaon, Haryana",
-        companyUrl: "https://octaphores.com",
+        companyUrl: "https://octaphores.com/",
         technologies: [
-            { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
-            { name: "TypeScript", icon: SiTypescript, color: "text-blue-400" },
             { name: "React", icon: SiReact, color: "text-blue-400" },
-            { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-400" },
-            { name: "Docker", icon: SiDocker, color: "text-blue-400" }
+            { name: "TypeScript", icon: SiTypescript, color: "text-blue-400" },
+            { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-blue-400" },
+            { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
+            { name: "Express", icon: SiExpress, color: "text-white" },
+            { name: "MongoDB", icon: SiMongodb, color: "text-green-500" },
         ]
     },
     {
@@ -26,7 +27,7 @@ export const experiences = [
         type: "On-site",
         duration: "May 2024 - Oct 2024",
         location: "Patna, Bihar",
-        companyUrl: "https://csdtitsolutions.com",
+        companyUrl: "https://www.csdtitsolution.com/",
         technologies: [
             { name: "HTML", icon: SiHtml5, color: "text-orange-500" },
             { name: "CSS", icon: SiCss3, color: "text-blue-400" },

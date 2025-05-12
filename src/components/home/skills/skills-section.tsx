@@ -1,89 +1,8 @@
 import BackgroundStyle from '@/core/common/background'
 import React from 'react'
-import {
-    SiJavascript, SiTypescript, SiPython, SiPostgresql,
-    SiReact, SiNextdotjs, SiExpress, SiFastapi, SiNodedotjs,
-    SiTailwindcss, SiBootstrap, SiCypress, SiGraphql, SiRedux,
-    SiMongodb, SiMysql, SiPrisma, SiGithubactions, SiServerless,
-    SiDocker, SiMapbox, SiJest, SiRedis,
-    SiAlchemy, SiAmazonec2,
-    SiAwsamplify,
-} from 'react-icons/si'
-import { DiJava, DiMaterializecss } from 'react-icons/di'
-import { VscAzure } from 'react-icons/vsc'
 import SectionHeader from '@/core/common/section-header'
-
-const skillCategories = [
-    {
-        title: 'Languages',
-        skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'SQL'],
-        icons: [
-            <SiJavascript className="text-yellow-400" size={16} />,
-            <SiTypescript className="text-blue-400" size={16} />,
-            <SiPython className="text-blue-500" size={16} />,
-            <DiJava className="text-red-500" size={16} />,
-            <SiPostgresql className="text-blue-400" size={16} />
-        ]
-    },
-    {
-        title: 'Libraries & Frameworks',
-        skills: [
-            'React', 'Next.js', 'Express', 'Fast API', 'HonoJs', 'Node.js',
-            'React Native', 'Tailwind CSS', 'Bootstrap', 'Material UI',
-            'Jest', 'Cypress', 'React Query', 'GraphQL', 'Redux', 'Recoil'
-        ],
-        icons: [
-            <SiReact className="text-blue-400" size={16} />,
-            <SiNextdotjs className="text-white" size={16} />,
-            <SiExpress className="text-white" size={16} />,
-            <SiFastapi className="text-teal-500" size={16} />,
-            <SiAlchemy className="text-white" size={16} />,
-            <SiNodedotjs className="text-green-500" size={16} />,
-            <SiReact className="text-blue-400" size={16} />,
-            <SiTailwindcss className="text-cyan-400" size={16} />,
-            <SiBootstrap className="text-purple-500" size={16} />,
-            <DiMaterializecss className="text-blue-400" size={16} />,
-            <SiJest className="text-red-500" size={16} />,
-            <SiCypress className="text-green-400" size={16} />,
-            <SiReact className="text-blue-500" size={16} />,
-            <SiGraphql className="text-pink-500" size={16} />,
-            <SiRedux className="text-purple-500" size={16} />,
-            <SiRedux className="text-blue-400" size={16} />
-        ]
-    },
-    {
-        title: 'Databases & ORMs',
-        skills: ['MongoDB', 'Postgres', 'SQLAlchemy', 'Redis', 'Alembic', 'MySQL', 'Prisma', 'PyScopG2'],
-        icons: [
-            <SiMongodb className="text-green-500" size={16} />,
-            <SiPostgresql className="text-blue-400" size={16} />,
-            <SiAlchemy className="text-gray-400" size={16} />,
-            <SiRedis className="text-red-500" size={16} />,
-            <SiAlchemy className="text-gray-400" size={16} />,
-            <SiMysql className="text-blue-500" size={16} />,
-            <SiPrisma className="text-white" size={16} />,
-            <SiPython className="text-yellow-500" size={16} />
-        ]
-    },
-    {
-        title: 'Tools & Platforms',
-        skills: [
-            'GitHub Actions', 'Serverless', 'ESLint', 'AWS S3', 'AWS EC2',
-            'AWS CloudFront', 'Azure VM', 'Docker', 'Mapbox'
-        ],
-        icons: [
-            <SiGithubactions className="text-blue-500" size={16} />,
-            <SiServerless className="text-red-500" size={16} />,
-            <SiJavascript className="text-purple-500" size={16} />,
-            <SiAwsamplify className="text-yellow-500" size={16} />,
-            <SiAmazonec2 className="text-yellow-500" size={16} />,
-            <SiAlchemy className="text-yellow-500" size={16} />,
-            <VscAzure className="text-blue-500" size={16} />,
-            <SiDocker className="text-blue-400" size={16} />,
-            <SiMapbox className="text-blue-500" size={16} />
-        ]
-    }
-]
+import { skillCategories } from '@/data/skills-data'
+import { ISkillCategory } from '@/types/skills-types'
 
 export default function SkillsSection() {
     return (
@@ -92,7 +11,7 @@ export default function SkillsSection() {
                 <SectionHeader title="Skills" />
 
                 <div className="space-y-4 sm:space-y-6">
-                    {skillCategories.map((category, index) => (
+                    {skillCategories.map((category: ISkillCategory, index: number) => (
                         <div key={category.title} className="space-y-3 sm:space-y-6">
                             <h3 className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 font-medium">
                                 {category.title}

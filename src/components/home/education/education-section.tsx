@@ -22,7 +22,7 @@ export default function EducationSection() {
                             dark:from-gray-600 dark:via-gray-500 dark:to-gray-600 opacity-50 blur-sm" />
                     </div>
 
-                    <div className="space-y-12">
+                    <div className="space-y-8">
                         {educationData.map((edu: IEducation, index: number) => (
                             <div
                                 key={index}
@@ -98,7 +98,7 @@ export default function EducationSection() {
                                             </div>
 
                                             {/* Duration and Location */}
-                                            <div className="flex items-center flex-wrap gap-2 md:gap-4 mb-4">
+                                            <div className="flex items-center flex-wrap gap-2 md:gap-4">
                                                 <div className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400">
                                                     <FaCalendarAlt className="text-gray-500" size={14} />
                                                     <span>{edu.duration}</span>

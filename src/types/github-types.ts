@@ -22,5 +22,6 @@ export interface ContributionsCollection {
 export interface GitHubContributions {
     year: number;
     followers: number;
+    publicRepos: number;
     collection: ContributionsCollection;
 }

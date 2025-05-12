@@ -70,7 +70,7 @@ export default function ExperienceSection() {
                                         href={exp.companyUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="absolute top-2 md:top-3 sm:top-4 right-2 md:right-3 sm:right-4 p-1 md:p-1.5 rounded-lg bg-gray-100 dark:bg-gray-700/50
+                                        className="z-50 absolute top-2 md:top-3 sm:top-4 right-2 md:right-3 sm:right-4 p-1 md:p-1.5 rounded-lg bg-gray-100 dark:bg-gray-700/50
                                         hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors duration-300
                                         group/link"
                                     >

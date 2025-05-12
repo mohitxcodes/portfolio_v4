@@ -18,7 +18,7 @@ export default function SectionHeader({ title, link, linkText }: ISectionHeader)
                     href={`${link}`}
                     className="group flex items-center gap-1.5 xs:gap-2 px-3 xs:px-4 py-1.5 xs:py-2 text-xs xs:text-sm font-medium text-gray-700 dark:text-gray-300
                         bg-gray-100 hover:bg-gray-200 dark:bg-gray-800/50 dark:hover:bg-gray-700/50
-                        rounded-lg border border-gray-200 dark:border-gray-700/50
+                        rounded-xs border border-gray-200 dark:border-gray-700/50
                         transition-all duration-300 hover:shadow-md whitespace-nowrap"
                 >
                     <span className="truncate">{linkText}</span>

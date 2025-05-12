@@ -3,14 +3,16 @@ import type { GitHubContributions } from '@/types/github-types';
 export async function fetchGitHubContributions(
   username: string,
   year?: number
-): Promise<GitHubContributions & { followers: number }> {
+): Promise<GitHubContributions & {
+  followers: number;
+  publicRepos: number;
+}> {
   const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
   if (!token) {
     throw new Error('GitHub token not configured');
   }
 
-  // Default to current year if not specified
   const targetYear = year || new Date().getFullYear();
   const from = `${targetYear}-01-01T00:00:00Z`;
   const to = `${targetYear}-12-31T23:59:59Z`;
@@ -25,6 +27,9 @@ export async function fetchGitHubContributions(
       query($username: String!, $from: DateTime!, $to: DateTime!) {
         user(login: $username) {
           followers {
+            totalCount
+          }
+          repositories(privacy: PUBLIC) {
             totalCount
           }
           contributionsCollection(from: $from, to: $to) {
@@ -72,6 +77,7 @@ export async function fetchGitHubContributions(
       year: targetYear,
       collection: data.user.contributionsCollection,
       followers: data.user.followers.totalCount,
+      publicRepos: data.user.repositories.totalCount,
     };
   } catch (error) {
     console.error('Error fetching GitHub data:', error);

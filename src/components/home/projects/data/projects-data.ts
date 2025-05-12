@@ -1,24 +1,4 @@
-export interface Project {
-    title: string;
-    subtitle: string;
-    projectType: 'website' | 'ai' | 'app';
-    description: string;
-    images: string[];
-    githubUrl: string;
-    liveUrl: string;
-    technologies: string[];
-    featured: boolean;
-    challenges: string[];
-    impact: string[];
-    role: string;
-    duration: string;
-    techStack: {
-        frontend: string;
-        backend: string;
-        devops?: string;
-        extras?: string;
-    };
-}
+import { Project } from "@/types/projects-types";
 
 export const projectsData: Project[] = [
     {
@@ -31,9 +11,9 @@ export const projectsData: Project[] = [
             "/projects/techpathfinder/tpf_02.png",
             "/projects/techpathfinder/tpf_03.png"
         ],
-        githubUrl: "https://github.com/mohitxcodes/techpathfinder",
+        githubUrl: "https://github.com/mohitxcodes",
         liveUrl: "https://techpathfinder.msxcodes.in",
-        technologies: ["Next.js", "Node.js", "MongoDB", "Tailwind CSS"],
+        technologies: ["Next.js", "Node.js", "MongoDB", "ExpressJs", "Tailwind CSS" , "Docker",],
         featured: true,
         challenges: [
             "Implementing real-time updates across multiple devices",
@@ -65,7 +45,7 @@ export const projectsData: Project[] = [
         ],
         githubUrl: "https://github.com/mohitxcodes/insighted-frontend",
         liveUrl: "https://insights-ed.vercel.app",
-        technologies: ["React", "Socket.io", "OpenAI", "Express", "Redis"],
+        technologies: ["React", "Socket.io", "Gemini", "Express", "Redis" , "MongoDB"],
         featured: true,
         challenges: [
             "Ensuring AI accuracy and reliability",
@@ -95,9 +75,9 @@ export const projectsData: Project[] = [
             "/projects/max_movie/maxmovie_01.png",
             "/projects/max_movie/maxmovie_02.png"
         ],
-        githubUrl: "https://github.com/mohitxcodes/maxmovie",
+        githubUrl: "https://github.com/mohitxcodes/max-movie",
         liveUrl: "https://max-movie.vercel.app",
-        technologies: ["React", "Next.js", "Tailwind CSS", "Chart.js"],
+        technologies: ["React", "Tailwind CSS", "Framer Motion", "TMDB API" , "Redux"],
         featured: true,
         challenges: [
             "Handling large movie datasets",

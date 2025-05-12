@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { fetchGitHubContributions } from '@/apis/fetch-github';
 import type { GitHubContributions } from '@/types/github-types';
-import { FaChevronDown, FaGithub, FaUsers, FaFire } from 'react-icons/fa';
+import { FaChevronDown, FaGithub, FaUsers, FaFire, FaCode, FaBuilding } from 'react-icons/fa';
 import ContributionsFallback from '@/core/fallback/contributions-fallback';
 import BackgroundStyle from '../../../core/common/background';
 
@@ -172,7 +172,7 @@ export default function GitHubContributions() {
 
             {/* Stats at bottom */}
             <div className="border-t mt-4 pt-4 border-gray-200 dark:border-gray-800/90">
-                <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex flex-wrap items-center justify-start gap-6">
                     <div className="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800/50 px-3 py-2 rounded-lg transition-all duration-200">
                         <FaGithub className="text-gray-600 dark:text-gray-400" />
                         <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Contributions:</span>
@@ -181,15 +181,20 @@ export default function GitHubContributions() {
                         </span>
                     </div>
                     <div className="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800/50 px-3 py-2 rounded-lg transition-all duration-200">
-                        <FaUsers className="text-gray-600 dark:text-gray-400" />
-                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Followers:</span>
-                        <span className="text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-medium">{contributions.followers}</span>
+                        <FaCode className="text-gray-600 dark:text-gray-400" />
+                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Repositories:</span>
+                        <span className="text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-medium">
+                            {contributions.publicRepos.toLocaleString()}
+                        </span>
                     </div>
                     <div className="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800/50 px-3 py-2 rounded-lg transition-all duration-200">
-                        <FaFire className="text-gray-600 dark:text-gray-400" />
-                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Streak:</span>
-                        <span className="text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-medium">14 days</span>
+                        <FaUsers className="text-gray-600 dark:text-gray-400" />
+                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Followers:</span>
+                        <span className="text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-medium">
+                            {contributions.followers.toLocaleString()}
+                        </span>
                     </div>
+
                 </div>
             </div>
         </BackgroundStyle>
