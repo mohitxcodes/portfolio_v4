@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
+import { IoClose } from 'react-icons/io5'
+import { RiMenu3Line } from 'react-icons/ri'
 
 export default function Header() {
     const pathname = usePathname()
@@ -18,7 +20,7 @@ export default function Header() {
     ]
 
     return (
-        <header className="max-w-6xl px-4 py-4 mx-auto relative bg-white/95 dark:bg-black/95 z-50 
+        <header className="max-w-6xl mx-3 pl-3 pr-2 md:px-4 md:py-2  md:mx-auto relative bg-white/95 dark:bg-black/95 z-50 
             border rounded-lg border-gray-200 dark:border-gray-800 my-4 
             shadow-lg shadow-gray-100 dark:shadow-none
             transition-all duration-300">
@@ -26,7 +28,7 @@ export default function Header() {
                 {/* Logo/Brand */}
                 <Link
                     href="/"
-                    className="text-xl font-bold 
+                    className="md:text-xl font-bold 
                         text-gray-800 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white 
                         transition-colors group"
                 >
@@ -68,15 +70,13 @@ export default function Header() {
                         text-gray-600 hover:text-gray-900 
                         dark:text-gray-400 dark:hover:text-white
                         transition-all duration-300"
+                    aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
                 >
-                    <div className="relative w-6 h-6 ">
-                        <span className={`absolute h-0.5 w-6 bg-current transform transition-all duration-300
-                            ${isMobileMenuOpen ? 'rotate-45 top-3' : 'top-1'}`} />
-                        <span className={`absolute h-0.5 w-6 bg-current top-3 transition-all duration-300
-                            ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
-                        <span className={`absolute h-0.5 w-6 bg-current transform transition-all duration-300
-                            ${isMobileMenuOpen ? '-rotate-45 top-3' : 'top-5'}`} />
-                    </div>
+                    {isMobileMenuOpen ? (
+                        <IoClose className="w-6 h-6" />
+                    ) : (
+                        <RiMenu3Line className="w-6 h-6" />
+                    )}
                 </button>
             </div>
 

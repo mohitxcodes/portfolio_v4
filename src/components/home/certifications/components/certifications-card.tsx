@@ -40,7 +40,7 @@ export default function CertificationsCard({ cert, index }: { cert: any, index: 
             <div className="p-4 sm:p-6">
                 {/* Title and External Link */}
                 <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-100
+                    <h3 className="text-base sm:text-xl font-semibold text-gray-800 dark:text-gray-100
                                         group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
                         {cert.title}
                     </h3>

@@ -5,17 +5,13 @@ import Image from 'next/image'
 import { educationData } from './data/education-data'
 import { IEducation } from './data/education-data'
 import CardOverlayStyle from '@/core/common/card-overlay-style'
+import SectionHeader from '@/core/common/section-header'
 
 export default function EducationSection() {
     return (
         <BackgroundStyle>
             <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 text-gray-800 dark:text-gray-100
-                    relative inline-block animate-fade-in">
-                    Education
-                    <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-gray-300 via-gray-400 to-gray-300 
-                        dark:from-gray-600 dark:via-gray-500 dark:to-gray-600 rounded-full" />
-                </h2>
+                <SectionHeader title="Education" />
 
                 <div className="relative">
                     {/* Timeline Line */}
@@ -66,7 +62,7 @@ export default function EducationSection() {
                                             href={edu.website}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="z-50 absolute top-4 right-4 p-1.5 rounded-lg bg-gray-100 dark:bg-gray-700/50
+                                            className="hidden md:block z-50 absolute top-4 right-4 p-1.5 rounded-lg bg-gray-100 dark:bg-gray-700/50
                                         hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors duration-300
                                         group/link"
                                         >
@@ -89,13 +85,9 @@ export default function EducationSection() {
 
                                         <div className="flex-1">
                                             <div className="flex items-center gap-3 mb-2">
-                                                <div className="p-2 rounded-lg bg-gradient-to-br from-gray-100 to-gray-50 
-                                                    dark:from-gray-700/50 dark:to-gray-800/50
-                                                    shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                                                    <FaGraduationCap className="text-gray-600 dark:text-gray-300" size={20} />
-                                                </div>
                                                 <div>
-                                                    <h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-100
+                                                    <h3 className="text-sm md:text-lg font-semibold text-gray-800 dark:text-gray-100
+                                                    
                                                         group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
                                                         {edu.degree}
                                                     </h3>
@@ -106,7 +98,7 @@ export default function EducationSection() {
                                             </div>
 
                                             {/* Duration and Location */}
-                                            <div className="flex items-center gap-4 mb-4">
+                                            <div className="flex items-center flex-wrap gap-2 md:gap-4 mb-4">
                                                 <div className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400">
                                                     <FaCalendarAlt className="text-gray-500" size={14} />
                                                     <span>{edu.duration}</span>

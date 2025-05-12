@@ -11,6 +11,7 @@ import {
 } from 'react-icons/si'
 import { DiJava, DiMaterializecss } from 'react-icons/di'
 import { VscAzure } from 'react-icons/vsc'
+import SectionHeader from '@/core/common/section-header'
 
 const skillCategories = [
     {
@@ -88,9 +89,7 @@ export default function SkillsSection() {
     return (
         <BackgroundStyle>
             <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-gray-800 dark:text-gray-100">
-                    Skills
-                </h2>
+                <SectionHeader title="Skills" />
 
                 <div className="space-y-4 sm:space-y-6">
                     {skillCategories.map((category, index) => (
