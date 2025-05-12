@@ -1,6 +1,6 @@
 import BackgroundStyle from '@/core/common/background'
 import React from 'react'
-import { FaGraduationCap, FaCalendarAlt, FaMapMarkerAlt, FaExternalLinkAlt } from 'react-icons/fa'
+import { FaCalendarAlt, FaMapMarkerAlt, FaExternalLinkAlt } from 'react-icons/fa'
 import Image from 'next/image'
 import { educationData } from './data/education-data'
 import { IEducation } from './data/education-data'
@@ -87,7 +87,7 @@ export default function EducationSection() {
                                             <div className="flex items-center gap-3 mb-2">
                                                 <div>
                                                     <h3 className="text-sm md:text-lg font-semibold text-gray-800 dark:text-gray-100
-                                                    
+
                                                         group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
                                                         {edu.degree}
                                                     </h3>

@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { RiVerifiedBadgeFill } from 'react-icons/ri'
+import { FiHeart } from 'react-icons/fi'
 import BackgroundStyle from '../../../core/common/background'
 import { socialLinks } from '@/data/hero-data'
 
@@ -52,15 +53,15 @@ export default function HeroSection() {
                                 <span className="text-sm text-gray-400">(he/him)</span>
                             </div>
                             <Link
-                                href="https://www.buymeacoffee.com/mohitxcodes"
+                                href="https://github.com/sponsors/mohitxcodes"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-medium bg-amber-500/5 text-amber-400 
-                                    rounded-sm hover:bg-amber-500/10 transition border border-amber-500/30 
+                                className="px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-medium bg-pink-500/5 text-pink-400 
+                                    rounded-sm hover:bg-pink-500/10 transition border border-pink-500/30 
                                     flex items-center gap-2 active:scale-95"
                             >
-                                <span>☕</span>
-                                <span className="whitespace-nowrap">Buy me a coffee</span>
+                                <FiHeart className="w-4 h-4" />
+                                <span className="whitespace-nowrap">Sponsor</span>
                             </Link>
                         </div>
                     </div>
