@@ -1,7 +1,7 @@
 import BackgroundStyle from '@/components/common/background'
 import React from 'react'
 import { FaBriefcase, FaCalendarAlt, FaBuilding, FaMapMarkerAlt, FaExternalLinkAlt, FaClock } from 'react-icons/fa'
-import { experiences } from './data/exp-data'
+import { experiences } from '../data/exp-data'
 
 
 export default function ExperienceSection() {

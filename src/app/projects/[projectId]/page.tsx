@@ -1,4 +1,4 @@
-import ProjectDetailsPage from '@/components/landing/projects/page/project-details-page'
+import ProjectDetailsPage from '@/components/home/projects/page/project-details-page'
 
 interface ProjectPageProps {
     params: {

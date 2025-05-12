@@ -1,9 +1,10 @@
+import EventPage from '@/components/pages/events/event-page'
 import React from 'react'
 
-export default function EventsPage() {
+export default function Events() {
     return (
         <div>
-            <h1>Events</h1>
+            <EventPage />
         </div>
     )
 }

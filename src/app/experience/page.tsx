@@ -1,9 +1,9 @@
 import React from 'react'
-
-export default function ExperiencePage() {
+import ExperiencePage from '@/components/home/experince/page/exp-page'
+export default function Experience() {
     return (
         <div>
-            <h1>Experience</h1>
+            <ExperiencePage />
         </div>
     )
 }
