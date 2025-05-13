@@ -1,8 +1,8 @@
-import { SiDocker, SiJest, SiMongodb, SiExpress, SiJavascript, SiPostgresql, SiReact, SiTypescript, SiHtml5, SiCss3, SiTailwindcss } from "react-icons/si";
-
+import { SiMongodb, SiExpress, SiJavascript, SiReact, SiTypescript, SiHtml5, SiCss3, SiTailwindcss } from "react-icons/si";
+import { IExperience} from "@/types/exp-types";
 import { SiNodedotjs } from "react-icons/si";
 
-export const experiences = [
+export const experiences: IExperience[] = [
     {
         company: "OCTAPHORES PRIVATE LIMITED",
         role: "Full Stack Developer",
