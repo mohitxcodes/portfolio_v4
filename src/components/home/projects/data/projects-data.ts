@@ -1,4 +1,7 @@
 import { Project } from "@/types/projects-types";
+import { FaMobileAlt } from "react-icons/fa";
+import { FaRobot } from "react-icons/fa";
+import { FaDesktop } from "react-icons/fa";
 
 export const projectsData: Project[] = [
     {
@@ -195,3 +198,11 @@ export const projectsData: Project[] = [
     }
     },
 ]
+
+
+export const projectTabs = [
+                                { id: 'all', label: 'All Projects', icon: null, color: 'bg-gray-900 dark:bg-gray-100 dark:text-gray-900' },
+                                { id: 'website', label: 'Web Apps', icon: FaDesktop, color: 'bg-blue-600' },
+                                { id: 'ai', label: 'AI Projects', icon: FaRobot, color: 'bg-purple-600' },
+                                { id: 'app', label: 'Mobile Apps', icon: FaMobileAlt, color: 'bg-green-600' }
+                            ]

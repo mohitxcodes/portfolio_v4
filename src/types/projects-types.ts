@@ -19,3 +19,9 @@ export interface Project {
         extras?: string;
     };
 }
+
+export interface ProjectCardProps {
+    project: Project;
+    index: number;
+    getProjectTypeIcon: (type: string) => React.ReactNode;
+}
