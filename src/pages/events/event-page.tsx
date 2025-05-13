@@ -1,89 +1,33 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FaCalendarAlt, FaMapMarkerAlt, FaTrophy, FaLightbulb, FaExternalLinkAlt, FaArrowLeft, FaCertificate } from 'react-icons/fa'
+import { FaCalendarAlt, FaMapMarkerAlt, FaExternalLinkAlt, FaArrowLeft, } from 'react-icons/fa'
 import BackgroundStyle from '@/core/common/background'
 import Link from 'next/link'
 import Image from 'next/image'
+import { events, tabs } from '@/data/event-data'
 
-interface IEvent {
-    type: string;
-    title: string;
-    date: string;
-    location: string;
-    host: string;
-    overview: string;
-    learningOutcomes: string[];
-    images: string[];
-    link: string;
-    certificateUrl?: string; // Optional certificate URL
-}
+
 
 export default function EventPage() {
     const [activeTab, setActiveTab] = useState('all')
+    const [isMobile, setIsMobile] = useState(false)
 
-    const events: IEvent[] = [
-        {
-            type: 'events',
-            title: "Badge Ceremony 2025",
-            date: "Feb 2025",
-            location: "D1 Auditorium, Chandigarh University, Punjab",
-            host: "Chandigarh University",
-            overview: "Worked on developing an AI-powered waste management system that helps cities optimize their recycling processes.",
-            learningOutcomes: [
-                "Advanced AI implementation in real-world scenarios",
-                "Team collaboration and project management",
-                "Pitching and presentation skills"
-            ],
-            images: [
-                "/events/badge-event/badge_01.jpeg",
-                "/events/badge-event/badge_02.jpeg",
-                "/events/badge-event/badge_03.jpeg"
-            ],
-            link: "#",
-            certificateUrl: "/certificates/python-certification.pdf"
-        },
-        {
-            type: 'workshop',
-            title: "Web Development Masterclass",
-            date: "October 20, 2023",
-            location: "Tech Hub, Bangalore",
-            host: "Web Dev Community",
-            overview: "Led a hands-on session on building scalable web applications using Next.js and TypeScript.",
-            learningOutcomes: [
-                "Advanced TypeScript patterns",
-                "Next.js 13 features and best practices",
-                "Performance optimization techniques"
-            ],
-            images: [
-                "/events/workshop1.jpg",
-                "/events/workshop2.jpg",
-                "/events/workshop3.jpg"
-            ],
-            link: "#",
-            certificateUrl: "/certificates/web-dev-masterclass.pdf"
-        },
-        {
-            type: 'conference',
-            title: "Tech Summit 2023",
-            date: "September 5-7, 2023",
-            location: "Convention Center, Mumbai",
-            host: "Tech Leaders Forum",
-            overview: "Participated in panel discussions on the future of AI and machine learning in enterprise applications.",
-            learningOutcomes: [
-                "Industry trends and future predictions",
-                "Networking with industry leaders",
-                "Public speaking and presentation skills"
-            ],
-            images: [
-                "/events/conference1.jpg",
-                "/events/conference2.jpg",
-                "/events/conference3.jpg"
-            ],
-            link: "#",
-            certificateUrl: "/certificates/tech-summit-certificate.pdf"
+    // Check if the device is mobile
+    useEffect(() => {
+        const checkIfMobile = () => {
+            setIsMobile(window.innerWidth < 768)
         }
-    ]
+
+        // Initial check
+        checkIfMobile()
+
+        // Add event listener for window resize
+        window.addEventListener('resize', checkIfMobile)
+
+        // Cleanup
+        return () => window.removeEventListener('resize', checkIfMobile)
+    }, [])
 
     const filteredEvents = activeTab === 'all'
         ? events
@@ -91,7 +35,7 @@ export default function EventPage() {
 
     return (
         <BackgroundStyle>
-            <div className="max-w-7xl mx-auto px-4 py-8">
+            <div className="max-w-7xl mx-auto px-4">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -108,6 +52,25 @@ export default function EventPage() {
                             <FaArrowLeft className="group-hover:-translate-x-1 transition-transform" />
                             <span>Back to Home</span>
                         </Link>
+
+                        {/* Tabs - Desktop View - Positioned at right top */}
+                        {!isMobile && (
+                            <div className="flex gap-2">
+                                {tabs.map(tab => (
+                                    <button
+                                        key={tab.id}
+                                        onClick={() => setActiveTab(tab.id)}
+                                        className={`px-4 py-1 rounded-sm text-sm font-medium transition-all duration-300
+                                            ${activeTab === tab.id
+                                                ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
+                                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'}`}
+                                    >
+                                        {tab.icon && <tab.icon className="inline-block mr-2" />}
+                                        {tab.label}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
                     </div>
                     <h1 className="text-4xl md:text-5xl font-bold mt-8 mb-4
                         bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 
@@ -120,50 +83,24 @@ export default function EventPage() {
                     </p>
                 </motion.div>
 
-                {/* Tabs */}
-                <div className="flex gap-4 mb-8">
-                    <button
-                        onClick={() => setActiveTab('all')}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
-                            ${activeTab === 'all'
-                                ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'}`}
-                    >
-                        All
-                    </button>
-
-                    <button
-                        onClick={() => setActiveTab('events')}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
-                            ${activeTab === 'events'
-                                ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'}`}
-                    >
-                        <FaTrophy className="inline-block mr-2" />
-                        Events
-                    </button>
-                    <button
-                        onClick={() => setActiveTab('hackathon')}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
-                            ${activeTab === 'hackathon'
-                                ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'}`}
-                    >
-                        <FaTrophy className="inline-block mr-2" />
-                        Hackathons
-                    </button>
-
-                    <button
-                        onClick={() => setActiveTab('workshop')}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
-                            ${activeTab === 'workshop'
-                                ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'}`}
-                    >
-                        <FaLightbulb className="inline-block mr-2" />
-                        Workshops
-                    </button>
-                </div>
+                {/* Tabs - Mobile View */}
+                {isMobile && (
+                    <div className="flex flex-wrap gap-2 justify-center mb-8">
+                        {tabs.map(tab => (
+                            <button
+                                key={tab.id}
+                                onClick={() => setActiveTab(tab.id)}
+                                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-300
+                                    ${activeTab === tab.id
+                                        ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
+                                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'}`}
+                            >
+                                {tab.icon && <tab.icon className="inline-block mr-1" />}
+                                {tab.label}
+                            </button>
+                        ))}
+                    </div>
+                )}
 
                 {/* Events Timeline */}
                 <div className="relative">
@@ -193,7 +130,7 @@ export default function EventPage() {
                                     transition-all duration-300 hover:shadow-xl">
 
                                     {/* Event Images */}
-                                    <div className="relative h-48 sm:h-64">
+                                    <div className="relative h-40 sm:h-48 md:h-64">
                                         <div className="absolute inset-0 flex">
                                             {event.images.map((image, idx) => (
                                                 <div key={idx} className="relative flex-1">
@@ -208,14 +145,14 @@ export default function EventPage() {
                                         </div>
                                     </div>
 
-                                    <div className="p-6">
+                                    <div className="p-4 sm:p-6">
                                         {/* Event Header */}
-                                        <div className="flex items-center justify-between mb-4">
+                                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
                                             <div>
-                                                <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                                                <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 dark:text-gray-100">
                                                     {event.title}
                                                 </h3>
-                                                <p className="text-sm text-gray-600 dark:text-gray-400">
+                                                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                                                     Hosted by {event.host}
                                                 </p>
                                             </div>
@@ -225,10 +162,10 @@ export default function EventPage() {
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 
-                                                        transition-colors duration-300 flex items-center gap-1.5"
+                                                        transition-colors duration-300 flex items-center gap-1.5 text-sm"
                                                     title="View Certificate"
                                                 >
-                                                    <span className="text-sm">Certificate</span>
+                                                    <span className="text-xs sm:text-sm">Certificate</span>
                                                     <FaExternalLinkAlt size={12} />
                                                 </a>
                                             ) : (
@@ -245,33 +182,33 @@ export default function EventPage() {
                                         </div>
 
                                         {/* Event Details */}
-                                        <div className="flex flex-wrap gap-4 mb-6">
-                                            <div className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400">
-                                                <FaCalendarAlt size={14} />
+                                        <div className="flex flex-wrap gap-3 sm:gap-4 mb-4 sm:mb-6">
+                                            <div className="flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                                                <FaCalendarAlt size={12} className="sm:text-base" />
                                                 <span>{event.date}</span>
                                             </div>
-                                            <div className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400">
-                                                <FaMapMarkerAlt size={14} />
+                                            <div className="flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                                                <FaMapMarkerAlt size={12} className="sm:text-base" />
                                                 <span>{event.location}</span>
                                             </div>
                                         </div>
 
                                         {/* Overview */}
-                                        <div className="mb-6">
-                                            <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">
+                                        <div className="mb-4 sm:mb-6">
+                                            <h4 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-gray-100 mb-1 sm:mb-2">
                                                 Overview
                                             </h4>
-                                            <p className="text-gray-600 dark:text-gray-400">
+                                            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
                                                 {event.overview}
                                             </p>
                                         </div>
 
                                         {/* Learning Outcomes */}
-                                        <div className="mb-6">
-                                            <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">
+                                        <div className="mb-4 sm:mb-6">
+                                            <h4 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-gray-100 mb-1 sm:mb-2">
                                                 Learning Outcomes
                                             </h4>
-                                            <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400">
+                                            <ul className="list-disc list-inside space-y-0.5 sm:space-y-1 text-sm sm:text-base text-gray-600 dark:text-gray-400">
                                                 {event.learningOutcomes.map((outcome, idx) => (
                                                     <li key={idx}>{outcome}</li>
                                                 ))}

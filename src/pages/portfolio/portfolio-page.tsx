@@ -1,80 +1,33 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight, FaCode, FaPalette, FaRocket, FaArrowRight } from 'react-icons/fa'
+import Link from 'next/link'
+import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight, FaArrowLeft } from 'react-icons/fa'
 import BackgroundStyle from '@/core/common/background'
-
-interface PortfolioVersion {
-    version: string;
-    year: string;
-    title: string;
-    description: string;
-    image: string;
-    githubUrl: string;
-    liveUrl: string;
-    technologies: string[];
-
-}
-
-const portfolioVersions: PortfolioVersion[] = [
-    {
-        version: "v1",
-        year: "2022",
-        title: "My First Portfolio",
-        description: "A simple, static portfolio showcasing my initial projects and skills. Built with basic HTML, CSS, and JavaScript.",
-        image: "/projects/portfolio/portfolio-v1.png",
-        githubUrl: "https://github.com/mohitxcodes/portfolio-v1",
-        liveUrl: "https://portfolio-v1.msxcodes.in",
-        technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-    },
-    {
-        version: "v2",
-        year: "2023",
-        title: "Enhanced Portfolio",
-        description: "An improved version with better UI/UX, animations, and more interactive features.",
-        image: "/projects/portfolio/portfolio-v2.png",
-        githubUrl: "https://github.com/mohitxcodes/portfolio-v2",
-        liveUrl: "https://portfolio-v2.msxcodes.in",
-        technologies: ["React", "Tailwind CSS", "Framer Motion", "Node.js"],
-    },
-    {
-        version: "v3",
-        year: "2023",
-        title: "Full-Stack Portfolio",
-        description: "A comprehensive portfolio with backend integration, authentication, and advanced features.",
-        image: "/projects/portfolio/portfolio-v3.png",
-        githubUrl: "https://github.com/mohitxcodes/portfolio-v3",
-        liveUrl: "https://portfolio-v3.msxcodes.in",
-
-        technologies: ["Next.js", "TypeScript", "MongoDB", "Express"],
-    },
-    {
-        version: "v4",
-        year: "2024",
-        title: "Modern Portfolio",
-        description: "A cutting-edge portfolio with advanced features, AI integration, and exceptional performance.",
-        image: "/projects/portfolio/portfolio-v4.png",
-        githubUrl: "https://github.com/mohitxcodes/portfolio-v4",
-        liveUrl: "https://portfolio-v4.msxcodes.in",
-        technologies: ["Next.js 14", "TypeScript", "Tailwind CSS", "AI Integration"],
-    },
-    {
-        version: "v5",
-        year: "2025",
-        title: "Modern Portfolio",
-        description: "A cutting-edge portfolio with advanced features, AI integration, and exceptional performance.",
-        image: "/projects/portfolio/portfolio-v5.png",
-        githubUrl: "https://github.com/mohitxcodes/portfolio-v5",
-        liveUrl: "https://portfolio-v5.msxcodes.in",
-        technologies: ["Next.js 14", "TypeScript", "Tailwind CSS", "AI Integration"],
-    }
-]
+import { portfolioVersions } from '@/data/portfolio-data'
 
 export default function PortfolioPage() {
     const [selectedVersion, setSelectedVersion] = useState<number>(0)
     const [isImageModalOpen, setIsImageModalOpen] = useState(false)
     const [activeTab, setActiveTab] = useState<'overview' | 'features' | 'tech'>('overview')
+    const [isMobile, setIsMobile] = useState(false)
+
+    // Check if the device is mobile
+    useEffect(() => {
+        const checkIfMobile = () => {
+            setIsMobile(window.innerWidth < 768)
+        }
+
+        // Initial check
+        checkIfMobile()
+
+        // Add event listener for window resize
+        window.addEventListener('resize', checkIfMobile)
+
+        // Cleanup
+        return () => window.removeEventListener('resize', checkIfMobile)
+    }, [])
 
     const nextVersion = () => {
         setSelectedVersion((prev) => (prev + 1) % portfolioVersions.length)
@@ -89,30 +42,42 @@ export default function PortfolioPage() {
 
     return (
         <BackgroundStyle>
-            <div className="min-h-screen">
-                {/* Header */}
+            <div className="min-h-screen w-full">
+                {/* Header with Back Button */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="text-center py-16"
+                    className="text-center  px-4"
                 >
-                    <h1 className="text-5xl md:text-6xl font-bold mb-6
-                        bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 
-                        dark:from-white dark:via-gray-300 dark:to-white
-                        bg-clip-text text-transparent">
-                        Portfolio Evolution
-                    </h1>
-                    <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-                        Witness the journey of my portfolio's evolution, from a simple static site to a modern, feature-rich application.
-                    </p>
+                    <div className="max-w-7xl mx-auto">
+                        <div className="flex justify-start mb-6">
+                            <Link
+                                href="/"
+                                className="group inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 
+                                    dark:text-gray-400 dark:hover:text-white transition-all duration-300"
+                            >
+                                <FaArrowLeft className="group-hover:-translate-x-1 transition-transform" />
+                                <span>Back to Home</span>
+                            </Link>
+                        </div>
+                        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6
+                            bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 
+                            dark:from-white dark:via-gray-300 dark:to-white
+                            bg-clip-text text-transparent">
+                            Portfolio Evolution
+                        </h1>
+                        <p className="mb-12 text-gray-600 dark:text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
+                            Witness the journey of my portfolio's evolution, from a simple static site to a modern, feature-rich application.
+                        </p>
+                    </div>
                 </motion.div>
 
                 {/* Main Content */}
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-                        {/* Left Side - Timeline */}
-                        <div className="lg:col-span-2">
+                <div className="max-w-7xl mx-auto px-4 pb-16">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                        {/* Left Side - Timeline (hidden on mobile) */}
+                        <div className="hidden lg:block lg:col-span-2">
                             <div className="sticky top-24">
                                 <div className="relative min-h-[600px]">
                                     {/* Timeline Line */}
@@ -190,8 +155,6 @@ export default function PortfolioPage() {
                                                     </div>
                                                 </div>
                                             </motion.button>
-
-
                                         </motion.div>
                                     ))}
                                 </div>
@@ -207,36 +170,45 @@ export default function PortfolioPage() {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -20 }}
                                     transition={{ duration: 0.5 }}
-                                    className="space-y-8"
+                                    className="space-y-6 sm:space-y-8"
                                 >
                                     {/* Project Header with Links */}
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                                        <div className="flex items-center gap-4">
-                                            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+                                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                        <div className="flex border-b border-gray-200 dark:border-gray-700/50 pb-4 w-full justify-between items-center gap-4">
+                                            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
                                                 {portfolioVersions[selectedVersion].title}
                                             </h2>
-                                            <div className="flex items-center gap-2">
-                                                <motion.button
-                                                    onClick={prevVersion}
-                                                    whileHover={{ scale: 1.05 }}
-                                                    whileTap={{ scale: 0.95 }}
-                                                    className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white
-                                                        hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                                                >
-                                                    <FaChevronLeft />
-                                                </motion.button>
-                                                <motion.button
-                                                    onClick={nextVersion}
-                                                    whileHover={{ scale: 1.05 }}
-                                                    whileTap={{ scale: 0.95 }}
-                                                    className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white
-                                                        hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                                                >
-                                                    <FaChevronRight />
-                                                </motion.button>
-                                            </div>
+                                            {!isMobile && (
+                                                <div className="flex items-center gap-2">
+                                                    <motion.button
+                                                        onClick={prevVersion}
+                                                        whileHover={{ scale: 1.05 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                        className="flex items-center px-4 gap-2 p-2 rounded-sm bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white
+                                                            hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                                                    >
+                                                        <FaChevronLeft />
+                                                        <span className="text-sm">Back</span>
+                                                    </motion.button>
+                                                    <motion.button
+                                                        onClick={nextVersion}
+                                                        whileHover={{ scale: 1.05 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                        className="flex items-center px-4 gap-2 p-2 rounded-sm bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white
+                                                            hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                                                    >
+                                                        <span className="text-sm">Next</span>
+                                                        <FaChevronRight />
+                                                    </motion.button>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
+
+                                    {/* Project Description */}
+                                    <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg">
+                                        {portfolioVersions[selectedVersion].description}
+                                    </p>
 
                                     {/* Project Image */}
                                     <div className="relative aspect-video rounded-lg overflow-hidden
@@ -253,9 +225,9 @@ export default function PortfolioPage() {
                                     </div>
 
                                     {/* Tech Stack and Links */}
-                                    <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mt-4">
+                                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-4">
                                         {/* Tech Stack */}
-                                        <div className="flex flex-wrap gap-2">
+                                        <div className="flex flex-wrap gap-2 mb-4 sm:mb-0">
                                             {portfolioVersions[selectedVersion].technologies.map((tech, i) => (
                                                 <motion.span
                                                     key={i}
@@ -274,18 +246,18 @@ export default function PortfolioPage() {
                                         </div>
 
                                         {/* Links */}
-                                        <div className="flex gap-3">
+                                        <div className="flex gap-3 w-full sm:w-auto">
                                             <motion.a
                                                 href={portfolioVersions[selectedVersion].githubUrl}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 whileHover={{ scale: 1.05 }}
                                                 whileTap={{ scale: 0.95 }}
-                                                className="flex items-center gap-2 px-4 py-2 rounded-lg
+                                                className="flex items-center justify-center gap-2 px-4 py-2 rounded-sm
                                                     bg-gray-100 dark:bg-gray-800
                                                     text-gray-900 dark:text-white
                                                     hover:bg-gray-200 dark:hover:bg-gray-700
-                                                    transition-colors"
+                                                    transition-colors flex-1 sm:flex-initial"
                                             >
                                                 <FaGithub />
                                                 <span>View Code</span>
@@ -296,10 +268,10 @@ export default function PortfolioPage() {
                                                 rel="noopener noreferrer"
                                                 whileHover={{ scale: 1.05 }}
                                                 whileTap={{ scale: 0.95 }}
-                                                className="flex items-center gap-2 px-4 py-2 rounded-lg
+                                                className="flex items-center justify-center gap-2 px-4 py-1.5 rounded-sm
                                                     bg-gray-900 dark:bg-white
                                                     text-white dark:text-gray-900
-                                                    hover:opacity-90 transition-opacity"
+                                                    hover:opacity-90 transition-opacity flex-1 sm:flex-initial"
                                             >
                                                 <FaExternalLinkAlt />
                                                 <span>Live Demo</span>
@@ -346,6 +318,30 @@ export default function PortfolioPage() {
                         </div>
                     </div>
                 </div>
+
+                {/* Mobile Version Selector - Fixed at Bottom */}
+                {isMobile && (
+                    <div className="fixed bottom-0 left-0 right-0 z-40">
+                        <div className="flex items-center justify-between bg-gray-50 dark:bg-gray-900 p-4 border-t border-gray-200 dark:border-gray-800 shadow-lg">
+                            <button
+                                onClick={prevVersion}
+                                className="p-2 rounded-lg bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white"
+                            >
+                                <FaChevronLeft />
+                            </button>
+                            <div className="text-center">
+                                <h3 className="text-lg font-medium text-gray-900 dark:text-white">{portfolioVersions[selectedVersion].version}</h3>
+                                <p className="text-sm text-gray-600 dark:text-gray-400">{portfolioVersions[selectedVersion].year}</p>
+                            </div>
+                            <button
+                                onClick={nextVersion}
+                                className="p-2 rounded-lg bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white"
+                            >
+                                <FaChevronRight />
+                            </button>
+                        </div>
+                    </div>
+                )}
             </div>
         </BackgroundStyle>
     )

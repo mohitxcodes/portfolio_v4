@@ -7,32 +7,6 @@ import Link from 'next/link'
 import ContactForm from './components/contact-form'
 
 export default function ContactPage() {
-    const socialLinks = [
-        {
-            id: 1,
-            href: "https://github.com/mohitxcodes",
-            icon: <FaGithub size={30} />,
-            className: "text-2xl"
-        },
-        {
-            id: 2,
-            href: "https://linkedin.com/in/mohitxcodes",
-            icon: <FaLinkedin size={30} />,
-            className: "text-2xl"
-        },
-        {
-            id: 3,
-            href: "https://discord.com/users/mohitxcodes",
-            icon: <FaDiscord size={30} />,
-            className: "text-3xl"
-        },
-        {
-            id: 4,
-            href: "https://twitter.com/mohitxcodes",
-            icon: <FaTwitter size={30} />,
-            className: "text-2xl"
-        }
-    ]
 
     return (
         <BackgroundStyle>

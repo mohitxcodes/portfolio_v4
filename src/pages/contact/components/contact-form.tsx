@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FaPaperPlane } from 'react-icons/fa'
 import ContactInfo from './contact-info'
@@ -10,6 +10,23 @@ export default function ContactForm() {
         email: '',
         message: ''
     })
+    const [isMobile, setIsMobile] = useState(false)
+
+    // Check if the device is mobile
+    useEffect(() => {
+        const checkIfMobile = () => {
+            setIsMobile(window.innerWidth < 768)
+        }
+
+        // Initial check
+        checkIfMobile()
+
+        // Add event listener for window resize
+        window.addEventListener('resize', checkIfMobile)
+
+        // Cleanup
+        return () => window.removeEventListener('resize', checkIfMobile)
+    }, [])
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -25,11 +42,11 @@ export default function ContactForm() {
     }
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Left Side - Contact Info */}
-            <ContactInfo />
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-12">
+            {/* Contact Info - Only shown at top for desktop */}
+            {!isMobile && <ContactInfo />}
 
-            {/* Right Side - Contact Form */}
+            {/* Contact Form */}
             <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -107,7 +124,7 @@ export default function ContactForm() {
                         type="submit"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full px-6 py-3 rounded-lg bg-gray-900 dark:bg-white
+                        className="w-full px-6 py-1.5 rounded-sm bg-gray-900 dark:bg-white
                             text-white dark:text-gray-900 font-medium
                             hover:opacity-90 transition-opacity
                             flex items-center justify-center gap-2"
@@ -117,6 +134,18 @@ export default function ContactForm() {
                     </motion.button>
                 </form>
             </motion.div>
+
+            {/* Contact Info - Only shown at bottom for mobile */}
+            {isMobile && (
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="mt-8"
+                >
+                    <ContactInfo />
+                </motion.div>
+            )}
         </div>
     )
 } 

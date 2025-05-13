@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FaBriefcase, FaCertificate, FaAward, FaArrowLeft, FaBuilding, FaMapMarkerAlt, FaCalendarAlt, FaClock, FaExternalLinkAlt } from 'react-icons/fa'
 import BackgroundStyle from '@/core/common/background'
@@ -10,8 +10,26 @@ import CertificationsCard from '../../certifications/components/certifications-c
 import ExperienceCard from '../components/exp-card'
 import { IExperience } from '@/types/exp-types'
 import Timeline from '@/core/common/timeline'
+
 export default function ExperiencePage() {
     const [activeTab, setActiveTab] = useState('experience')
+    const [isMobile, setIsMobile] = useState(false)
+
+    // Check if the device is mobile
+    useEffect(() => {
+        const checkIfMobile = () => {
+            setIsMobile(window.innerWidth < 768)
+        }
+
+        // Initial check
+        checkIfMobile()
+
+        // Add event listener for window resize
+        window.addEventListener('resize', checkIfMobile)
+
+        // Cleanup
+        return () => window.removeEventListener('resize', checkIfMobile)
+    }, [])
 
     return (
         <BackgroundStyle>
@@ -33,8 +51,45 @@ export default function ExperiencePage() {
                             <span>Back to Home</span>
                         </Link>
 
-                        {/* Tabs moved to the right side */}
-                        <div className="flex gap-4">
+                        {/* Tabs - Only show on desktop */}
+                        {!isMobile && (
+                            <div className="flex gap-4">
+                                <button
+                                    onClick={() => setActiveTab('experience')}
+                                    className={`px-4 py-1 rounded-sm text-sm font-medium transition-all duration-300
+                                        ${activeTab === 'experience'
+                                            ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
+                                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'}`}
+                                >
+                                    <FaBriefcase className="inline-block mr-2" />
+                                    Experience
+                                </button>
+                                <button
+                                    onClick={() => setActiveTab('certifications')}
+                                    className={`px-4 py-1 rounded-sm text-sm font-medium transition-all duration-300
+                                        ${activeTab === 'certifications'
+                                            ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
+                                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'}`}
+                                >
+                                    <FaCertificate className="inline-block mr-2" />
+                                    Certifications
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                    <h1 className="text-4xl md:text-5xl font-bold mt-8 mb-4
+                        bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 
+                        dark:from-white dark:via-gray-300 dark:to-white
+                        bg-clip-text text-transparent">
+                        Professional Journey
+                    </h1>
+                    <p className="text-gray-600 dark:text-gray-400 text-lg">
+                        A comprehensive overview of my professional experience, certifications, and achievements
+                    </p>
+
+                    {/* Tabs - Show below description on mobile */}
+                    {isMobile && (
+                        <div className="flex gap-4 w-full justify-center mt-6">
                             <button
                                 onClick={() => setActiveTab('experience')}
                                 className={`px-4 py-1 rounded-sm text-sm font-medium transition-all duration-300
@@ -56,16 +111,7 @@ export default function ExperiencePage() {
                                 Certifications
                             </button>
                         </div>
-                    </div>
-                    <h1 className="text-4xl md:text-5xl font-bold mt-8 mb-4
-                        bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 
-                        dark:from-white dark:via-gray-300 dark:to-white
-                        bg-clip-text text-transparent">
-                        Professional Journey
-                    </h1>
-                    <p className="text-gray-600 dark:text-gray-400 text-lg">
-                        A comprehensive overview of my professional experience, certifications, and achievements
-                    </p>
+                    )}
                 </motion.div>
 
                 {/* Content */}

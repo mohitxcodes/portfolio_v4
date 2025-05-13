@@ -28,19 +28,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-black transition-colors duration-300`}
       >
         <TopBar />
-        <ThemeProvider>
-          <Header />
-          <ContentWrapper>
-            {children}
-            <Footer />
-          </ContentWrapper>
-          <ThemeToggle />
-        </ThemeProvider>
+        <Header />
+        <ContentWrapper>
+          {children}
+          <Footer />
+        </ContentWrapper>
       </body>
     </html>
   );
