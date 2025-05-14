@@ -1,9 +1,10 @@
 "use client"
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { FaPaperPlane } from 'react-icons/fa'
 import ContactInfo from './contact-info'
-
+import emailjs from '@emailjs/browser'
+import { toast } from 'react-hot-toast'
 export default function ContactForm() {
     const [formData, setFormData] = useState({
         name: '',
@@ -11,27 +12,47 @@ export default function ContactForm() {
         message: ''
     })
     const [isMobile, setIsMobile] = useState(false)
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+    const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+    const formRef = useRef<HTMLFormElement>(null)
 
     // Check if the device is mobile
     useEffect(() => {
         const checkIfMobile = () => {
             setIsMobile(window.innerWidth < 768)
         }
-
-        // Initial check
         checkIfMobile()
-
-        // Add event listener for window resize
         window.addEventListener('resize', checkIfMobile)
-
-        // Cleanup
         return () => window.removeEventListener('resize', checkIfMobile)
     }, [])
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        // Handle form submission
         console.log(formData)
+
+        console.log(serviceId, templateId, userId, formRef.current)
+
+        // Send email
+        if (serviceId && templateId && userId && formRef.current) {
+            emailjs.sendForm(serviceId, templateId, formRef.current, userId)
+                .then((result) => {
+                    console.log('Email sent successfully:', result.text)
+                    toast.success('Email sent successfully')
+                    setFormData({
+                        name: '',
+                        email: '',
+                        message: ''
+                    })
+                })
+                .catch((error) => {
+                    console.error('Failed to send email:', error.text)
+                    toast.error('Failed to send email')
+                })
+        } else {
+            console.error('Missing required EmailJS configuration or form reference')
+            toast.error('Missing required EmailJS configuration or form reference')
+        }
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -56,7 +77,7 @@ export default function ContactForm() {
                 <div className="absolute -top-4 -left-4 w-24 h-24 bg-gray-500/10 rounded-full blur-2xl" />
                 <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gray-500/10 rounded-full blur-2xl" />
 
-                <form onSubmit={handleSubmit} className="relative space-y-6 bg-white/50 dark:bg-gray-900/50 
+                <form ref={formRef} onSubmit={handleSubmit} className="relative space-y-6 bg-white/50 dark:bg-gray-900/50 
                     backdrop-blur-sm p-8 rounded-2xl border border-gray-200 dark:border-gray-800
                     shadow-lg">
                     <div>
