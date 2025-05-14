@@ -1,6 +1,6 @@
 import { FaExternalLinkAlt, FaBuilding, FaMapMarkerAlt, FaCalendarAlt, FaClock } from 'react-icons/fa'
 import { IExperience, ITechnology } from '@/types/exp-types'
-
+import Image from 'next/image'
 export default function ExperienceCard({ exp, index }: { exp: IExperience, index: number }) {
     return (
         <div
@@ -62,7 +62,7 @@ export default function ExperienceCard({ exp, index }: { exp: IExperience, index
                     <div className="rounded-sm bg-gradient-to-br from-gray-100 to-gray-50 
                         dark:from-gray-700/50 dark:to-gray-800/50
                         shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                        <img src={exp.companyLogo} alt={exp.company} className="size-8 md:size-10 rounded-sm" />
+                        <Image src={`/${exp.companyLogo}`} alt={exp.company} className="size-8 md:size-10 rounded-sm" width={40} height={40} />
                     </div>
                     <div>
                         <h3 className="text-base md:text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-100

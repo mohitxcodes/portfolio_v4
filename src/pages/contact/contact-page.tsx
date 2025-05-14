@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FaGithub, FaLinkedin, FaDiscord, FaTwitter, FaArrowLeft } from 'react-icons/fa'
+import { FaArrowLeft } from 'react-icons/fa'
 import BackgroundStyle from '@/core/common/background'
 import Link from 'next/link'
 import ContactForm from './components/contact-form'
@@ -35,8 +35,8 @@ export default function ContactPage() {
                         Get in Touch
                     </h1>
                     <p className="text-gray-600 dark:text-gray-400 text-lg mb-4">
-                        I'm always open to exploring new collaborations and exciting opportunities.
-                        Whether it's a project idea, a job opportunity, or simply a chance to connect,
+                        I&apos;m always open to exploring new collaborations and exciting opportunities.
+                        Whether it&apos;s a project idea, a job opportunity, or simply a chance to connect,
                         feel free to reach out!
                     </p>
 

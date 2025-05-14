@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaGithub, FaExternalLinkAlt, FaUserAlt, FaCalendarAlt, FaArrowRight, FaGlobe, FaBrain, FaMobile } from 'react-icons/fa'
+import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaArrowRight, FaGlobe, FaBrain, FaMobile } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { ProjectCardProps } from '@/types/projects-types'
 

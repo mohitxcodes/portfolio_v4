@@ -1,3 +1,5 @@
+
+
 export const certifications = [
     {
         title: "Programming in Python: A Hands-on Introduction",

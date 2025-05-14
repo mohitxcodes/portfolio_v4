@@ -15,6 +15,7 @@ export default function ProjectPage() {
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
     const tabsContainerRef = useRef<HTMLDivElement>(null)
     const [isMobile, setIsMobile] = useState<boolean>(false)
+    console.log(isMobile);
 
     useEffect(() => {
         const checkIfMobile = () => {

@@ -2,7 +2,9 @@ import React from 'react'
 import Image from 'next/image'
 import { FaExternalLinkAlt, FaCalendarAlt } from 'react-icons/fa'
 import CardOverlayStyle from '@/core/common/card-overlay-style'
-export default function CertificationsCard({ cert, index }: { cert: any, index: number }) {
+import { ICertification } from '@/types/certification-types'
+
+export default function CertificationsCard({ cert, index }: { cert: ICertification, index: number }) {
     return (
         <div
             key={index}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaUserAlt, FaCalendarAlt, FaGlobe, FaBrain, FaMobile, } from 'react-icons/fa'
+import { FaCalendarAlt, FaGlobe, FaBrain, FaMobile, } from 'react-icons/fa'
 import { Project } from '@/types/projects-types'
 
 interface ProjectHeaderProps {

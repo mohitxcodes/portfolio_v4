@@ -50,7 +50,7 @@ export default function TopBar() {
                                 <p className="text-sm text-gray-800 dark:text-gray-200">
                                     <span className="hidden md:inline">Ready to start your next project?{" "}</span>
                                     <span className="font-medium bg-gradient-to-r from-gray-700 to-gray-600 dark:from-gray-400 dark:to-gray-300 bg-clip-text text-transparent">
-                                        Let's build something together!
+                                        Let&apos;s build something together!
                                     </span>
                                 </p>
                             </Link>

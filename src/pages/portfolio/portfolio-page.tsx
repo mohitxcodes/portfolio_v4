@@ -10,7 +10,6 @@ import { portfolioVersions } from '@/data/portfolio-data'
 export default function PortfolioPage() {
     const [selectedVersion, setSelectedVersion] = useState<number>(0)
     const [isImageModalOpen, setIsImageModalOpen] = useState(false)
-    const [activeTab, setActiveTab] = useState<'overview' | 'features' | 'tech'>('overview')
     const [isMobile, setIsMobile] = useState(false)
 
     // Check if the device is mobile
@@ -68,7 +67,7 @@ export default function PortfolioPage() {
                             Portfolio Evolution
                         </h1>
                         <p className="mb-12 text-gray-600 dark:text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
-                            Witness the journey of my portfolio's evolution, from a simple static site to a modern, feature-rich application.
+                            Witness the journey of my portfolio&apos;s evolution, from a simple static site to a modern, feature-rich application.
                         </p>
                     </div>
                 </motion.div>

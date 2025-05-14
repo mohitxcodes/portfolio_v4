@@ -1,6 +1,6 @@
 import BackgroundStyle from '@/core/common/background'
 import React from 'react'
-import { FaGithub, FaExternalLinkAlt, FaArrowRight, FaGlobe, FaRobot, FaMobile } from 'react-icons/fa'
+import { FaGithub, FaExternalLinkAlt, FaGlobe, FaRobot, FaMobile } from 'react-icons/fa'
 import Image from 'next/image'
 import { projectsData } from '../data/projects-data'
 import CardOverlayStyle from '@/core/common/card-overlay-style'

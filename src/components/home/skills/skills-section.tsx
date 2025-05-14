@@ -11,7 +11,7 @@ export default function SkillsSection() {
                 <SectionHeader title="Skills" />
 
                 <div className="space-y-4 sm:space-y-6">
-                    {skillCategories.map((category: ISkillCategory, index: number) => (
+                    {skillCategories.map((category: ISkillCategory) => (
                         <div key={category.title} className="space-y-3 sm:space-y-6">
                             <h3 className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 font-medium">
                                 {category.title}

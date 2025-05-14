@@ -35,11 +35,11 @@ export default function ContactInfo() {
         >
             <div>
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                    Let's Connect
+                    Let&apos;s Connect
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 mb-8">
                     Feel free to reach out through email or fill out the form.
-                    I'll get back to you as soon as possible.
+                    I&apos;ll get back to you as soon as possible.
                 </p>
             </div>
 

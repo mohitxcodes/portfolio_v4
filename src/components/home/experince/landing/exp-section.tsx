@@ -1,6 +1,5 @@
 import BackgroundStyle from '@/core/common/background'
 import React from 'react'
-import { FaCalendarAlt, FaBuilding, FaMapMarkerAlt, FaExternalLinkAlt, FaClock } from 'react-icons/fa'
 import { experiences } from '../data/exp-data'
 import SectionHeader from '@/core/common/section-header'
 import ExperienceCard from '../components/exp-card'

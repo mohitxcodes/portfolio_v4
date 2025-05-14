@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { fetchGitHubContributions } from '@/apis/fetch-github';
 import type { GitHubContributions } from '@/types/github-types';
-import { FaChevronDown, FaGithub, FaUsers, FaFire, FaCode, FaBuilding } from 'react-icons/fa';
+import { FaChevronDown, FaGithub, FaUsers, FaCode } from 'react-icons/fa';
 import ContributionsFallback from '@/core/fallback/contributions-fallback';
 import BackgroundStyle from '../../../core/common/background';
 

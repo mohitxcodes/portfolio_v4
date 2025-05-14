@@ -2,7 +2,6 @@ import BackgroundStyle from '@/core/common/background'
 import React from 'react'
 import { FaExternalLinkAlt } from 'react-icons/fa'
 import Link from 'next/link'
-import SectionHeader from '@/core/common/section-header'
 import CardOverlayStyle from '@/core/common/card-overlay-style'
 
 export default function ServicesSection() {
@@ -20,7 +19,7 @@ export default function ServicesSection() {
                                     Ready to Start Your Project?
                                 </h3>
                                 <p className="text-xs xs:text-sm text-gray-600 dark:text-gray-400 mt-1">
-                                    Let's build something amazing together
+                                    Let&apos;s build something amazing together
                                 </p>
                             </div>
                             <div className="flex flex-col xs:flex-row gap-3 xs:gap-4 w-full sm:w-auto">

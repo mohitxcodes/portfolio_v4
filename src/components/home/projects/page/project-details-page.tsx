@@ -2,8 +2,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import {
-    FaGithub, FaExternalLinkAlt, FaArrowLeft, FaChevronLeft,
-    FaMobileAlt, FaDesktop, FaRobot, FaChevronRight,
+    FaArrowLeft, FaChevronLeft, FaChevronRight,
 } from 'react-icons/fa'
 import Link from 'next/link'
 import { projectsData } from '../data/projects-data'

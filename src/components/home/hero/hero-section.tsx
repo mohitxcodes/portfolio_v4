@@ -68,7 +68,7 @@ export default function HeroSection() {
                 </div>
 
                 <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 max-w-2xl">
-                    CSE'28 | Full-Stack Developer | Next.js/ReactJs | Flutter | Redux/Toolkit | Node.js | ExpressJs | MongoDB | Freelancer | Exploring AI & Emerging Technologies.
+                    CSE&apos;28 | Full-Stack Developer | Next.js/ReactJs | Flutter | Redux/Toolkit | Node.js | ExpressJs | MongoDB | Freelancer | Exploring AI & Emerging Technologies.
                 </p>
 
                 {/* Social Links & Resume */}

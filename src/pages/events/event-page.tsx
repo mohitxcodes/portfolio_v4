@@ -79,7 +79,7 @@ export default function EventPage() {
                         Events & Achievements
                     </h1>
                     <p className="text-gray-600 dark:text-gray-400 text-lg">
-                        A collection of hackathons, workshops, and conferences I've participated in
+                        A collection of hackathons, workshops, and conferences I&apos;ve participated in
                     </p>
                 </motion.div>
 
