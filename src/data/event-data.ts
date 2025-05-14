@@ -15,11 +15,11 @@ export const events: IEvent[] = [
         date: "Feb 2025",
         location: "D1 Auditorium, Chandigarh University, Punjab",
         host: "Chandigarh University",
-            overview: "Worked on developing an AI-powered waste management system that helps cities optimize their recycling processes.",
+        overview: "Badge Ceremony 2025 was a great event that celebrated for the all university level and department level societies and clubs of Chandigarh University. It was a day of joy and pride as the students received their badges, which are a symbol of their hard work and dedication.",
             learningOutcomes: [
-                "Advanced AI implementation in real-world scenarios",
-                "Team collaboration and project management",
-                "Pitching and presentation skills"
+                "Gained experience in event planning and management",
+                "Learned about the importance of teamwork and collaboration",
+                "Developed skills in public speaking and presentation",
             ],
             images: [
                 "/events/badge-event/badge_01.jpeg",
@@ -29,44 +29,5 @@ export const events: IEvent[] = [
             link: "#",
             certificateUrl: "/certificates/python-certification.pdf"
         },
-        {
-            type: 'workshop',
-            title: "Web Development Masterclass",
-            date: "October 20, 2023",
-            location: "Tech Hub, Bangalore",
-            host: "Web Dev Community",
-            overview: "Led a hands-on session on building scalable web applications using Next.js and TypeScript.",
-            learningOutcomes: [
-                "Advanced TypeScript patterns",
-                "Next.js 13 features and best practices",
-                "Performance optimization techniques"
-            ],
-            images: [
-                "/events/workshop1.jpg",
-                "/events/workshop2.jpg",
-                "/events/workshop3.jpg"
-            ],
-            link: "#",
-            certificateUrl: "/certificates/web-dev-masterclass.pdf"
-        },
-        {
-            type: 'conference',
-            title: "Tech Summit 2023",
-            date: "September 5-7, 2023",
-            location: "Convention Center, Mumbai",
-            host: "Tech Leaders Forum",
-            overview: "Participated in panel discussions on the future of AI and machine learning in enterprise applications.",
-            learningOutcomes: [
-                "Industry trends and future predictions",
-                "Networking with industry leaders",
-                "Public speaking and presentation skills"
-            ],
-            images: [
-                "/events/conference1.jpg",
-                "/events/conference2.jpg",
-                "/events/conference3.jpg"
-            ],
-            link: "#",
-            certificateUrl: "/certificates/tech-summit-certificate.pdf"
-        }
+
     ]

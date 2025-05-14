@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaGithub, FaLinkedin, FaDiscord, FaTwitter, FaMapMarkerAlt, FaClock } from 'react-icons/fa'
+import { FaEnvelope, FaGithub, FaLinkedin, FaInstagram, FaTwitter, FaMapMarkerAlt, FaClock } from 'react-icons/fa'
 
 export default function ContactInfo() {
     const contactInfo = [
@@ -103,7 +103,7 @@ export default function ContactInfo() {
                         <FaLinkedin size={20} />
                     </motion.a>
                     <motion.a
-                        href="https://discord.com/users/mohitxcodes"
+                        href="https://instagram.com/mohitxcodes"
                         target="_blank"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
@@ -112,7 +112,7 @@ export default function ContactInfo() {
                             hover:text-gray-900 dark:hover:text-white
                             transition-colors"
                     >
-                        <FaDiscord size={20} />
+                        <FaInstagram size={20} />
                     </motion.a>
                     <motion.a
                         href="https://twitter.com/mohitxcodes"
